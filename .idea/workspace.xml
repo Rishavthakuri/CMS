@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ddf3fd10-0c44-47f4-bdce-0c2a4122379d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/css/sb-admin.css" afterPath="$PROJECT_DIR$/admin/css/sb-admin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/includes/add_user.php" afterPath="$PROJECT_DIR$/admin/includes/add_user.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/includes/admin_footer.php" afterPath="$PROJECT_DIR$/admin/includes/admin_footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/includes/admin_header.php" afterPath="$PROJECT_DIR$/admin/includes/admin_header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/includes/edit_post.php" afterPath="$PROJECT_DIR$/admin/includes/edit_post.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/includes/view_all_posts.php" afterPath="$PROJECT_DIR$/admin/includes/view_all_posts.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/includes/view_all_users.php" afterPath="$PROJECT_DIR$/admin/includes/view_all_users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/index.php" afterPath="$PROJECT_DIR$/admin/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post.php" afterPath="$PROJECT_DIR$/post.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,8 +29,8 @@
       <file leaf-file-name="add_post.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/includes/add_post.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+            <state relative-caret-position="443">
+              <caret line="71" column="7" lean-forward="false" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
               <folding>
                 <marker date="1521916932985" expanded="true" signature="534:655" ph="INSERT INTO posts... " />
                 <marker date="1521916932985" expanded="true" signature="1374:1398" ph="SELECT * FRO... categories" />
@@ -351,12 +341,20 @@
       <workItem from="1521946752838" duration="24378000" />
       <workItem from="1522084550263" duration="5859000" />
       <workItem from="1522146031682" duration="12617000" />
-      <workItem from="1522205455855" duration="5015000" />
+      <workItem from="1522205455855" duration="5920000" />
     </task>
+    <task id="LOCAL-00001" summary="Added &quot;Select Role Field&quot; + &quot;Bulk Selection&quot;">
+      <created>1522211283382</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1522211283382</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138253000" />
+    <option name="totallyTimeSpent" value="139158000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -368,7 +366,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1370" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963072" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -414,6 +412,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added &quot;Select Role Field&quot; + &quot;Bulk Selection&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added &quot;Select Role Field&quot; + &quot;Bulk Selection&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -472,6 +474,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="940">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <marker date="1522152678842" expanded="true" signature="352:371" ph="SELECT * FRO... posts" />
+            <marker date="1522152678842" expanded="true" signature="352:402" ph="SELECT * FRO... posts" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -527,6 +533,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1522152678842" expanded="true" signature="352:371" ph="SELECT * FRO... posts" />
+            <marker date="1522152678842" expanded="true" signature="352:402" ph="SELECT * FRO... posts" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -668,6 +678,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="457">
           <caret line="44" column="93" lean-forward="false" selection-start-line="44" selection-start-column="93" selection-end-line="44" selection-end-column="93" />
+          <folding>
+            <marker date="1522152678842" expanded="true" signature="352:371" ph="SELECT * FRO... posts" />
+            <marker date="1522152678842" expanded="true" signature="352:402" ph="SELECT * FRO... posts" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -719,6 +733,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <marker date="1522152148768" expanded="true" signature="425:460" ph="SELECT * FRO... posts" />
+            <marker date="1522152148768" expanded="true" signature="425:461" ph="SELECT * FRO... posts" />
+            <marker date="1522152148768" expanded="true" signature="425:462" ph="SELECT * FRO... posts" />
+            <marker date="1522152148768" expanded="true" signature="2031:2159" ph="INSERT INTO comments... " />
+            <marker date="1522152148768" expanded="true" signature="2193:2304" ph="INSERT INTO comments... " />
+            <marker date="1522152148768" expanded="true" signature="3646:3693" ph="SELECT * FRO... comments" />
+            <marker date="1522152148768" expanded="true" signature="4025:4085" ph="UPDATE posts... " />
+            <marker date="1522152148768" expanded="true" signature="4116:4125" ph="UPDATE post " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -863,8 +887,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/includes/add_post.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+        <state relative-caret-position="443">
+          <caret line="71" column="7" lean-forward="false" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
           <folding>
             <marker date="1521916932985" expanded="true" signature="534:655" ph="INSERT INTO posts... " />
             <marker date="1521916932985" expanded="true" signature="1374:1398" ph="SELECT * FRO... categories" />
