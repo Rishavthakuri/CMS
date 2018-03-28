@@ -25,12 +25,12 @@
                     $post_status = $row['post_status'];
 
                        ?>
-                        <h1 class="page-header">
-                            Page Heading
-                            <small>Secondary Text</small>
-                        </h1>
+<!--                        <h1 class="page-header">-->
+<!--                            Page Heading-->
+<!--                            <small>Secondary Text</small>-->
+<!--                        </h1>-->
 
-
+                      <div class="well">
                         <h2>
                             <a href="post.php?p_id=<?php echo $post_id;?>"><?php echo $post_title ?></a>
                         </h2>
@@ -39,13 +39,14 @@
                         </p>
                         <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date ?></p>
                         <hr>
-                        <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
+                          <a href="post.php?p_id=<?php echo $post_id;?>"><img class="img-responsive" src="images/<?php echo $post_image; ?>" alt=""></a>
                         <hr>
                         <p> <?php echo $post_content ?></p>
-                        <a class="btn btn-primary" href="#">Read More <span
+                        <a class="btn btn-primary" href="post.php?p_id=<?php echo $post_id;?>">Read More <span
                                     class="glyphicon glyphicon-chevron-right"></span></a>
 
                         <hr>
+                      </div>
                         <?php
                     }
                     global $post_status;

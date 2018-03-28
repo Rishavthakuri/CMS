@@ -18,7 +18,12 @@ if(isset($_POST['create_user'])) {
               '{$username}','{$user_email}','{$user_password}') ";
     $create_user_query=mysqli_query($connection,$query);
     ConfirmQuery($create_user_query);
+
+
 }
+?>
+<?php
+echo"<a href='users.php'><h4 style='text-align: center'> View all Users</h4></a>";
 ?>
 
 

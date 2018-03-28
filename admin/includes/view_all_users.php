@@ -1,3 +1,7 @@
+
+<?php
+echo"<a href='users.php?source=add_user'><h4 style='text-align: center'> Add User</h4></a>";
+?>
 <table class="table table-bordered table-hover">
     <thead>
     <tr>
