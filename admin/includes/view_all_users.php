@@ -67,7 +67,7 @@ echo"<a href='users.php?source=add_user'><h4 style='text-align: center'> Add Use
         echo "<td> <a href='users.php?change_to_admin={$user_id}'>Admin</a> </td>";
         echo "<td> <a href='users.php?change_to_sub={$user_id}'> Subscriber </a></td>";
         echo "<td> <a href='users.php?source=edit_user&edit_user={$user_id}'>Edit</a> </td>";
-        echo "<td> <a href='users.php?delete={$user_id}'>Delete</a> </td>";
+        echo "<td> <a onclick=\"javascript: return confirm('Are you Sure you Want to Delete?');\" href='users.php?delete={$user_id}'>Delete</a> </td>";
         echo "<tr>";
     }
 
@@ -88,7 +88,7 @@ if(isset($_GET['change_to_admin'])){
 
 if(isset($_GET['change_to_sub'])){
     $the_user_id=  $_GET['change_to_sub'];
-    $query ="UPDATE users SET user_role = 'Subscriber' WHERE user_id = $the_user_id";
+    $query ="UPDATE users SET user_role = 'subscriber' WHERE user_id = $the_user_id";
     $change_to_query=mysqli_query($connection,$query);
     header("Location:users.php");
 }

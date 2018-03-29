@@ -111,7 +111,7 @@
 
             $query = "SELECT * FROM comments WHERE comment_post_id = {$the_post_id} ";
             $query.="AND comment_status = 'approved' ";
-             $query.="ORDER BY comment_id DESC";
+            $query.="ORDER BY comment_id DESC";
             $select_comment_query = mysqli_query($connection, $query);
             if(!$select_comment_query){
                 die("Query Failed".mysqli_error($connection));
@@ -134,13 +134,13 @@
                         <h4 class="media-heading"><?php echo $comment_author ?>
                             <small><?php echo $comment_date ?></small>
                         </h4>
-                         <?php echo $comment_content ?>
+                        <?php echo $comment_content ?>
                     </div>
                 </div>
 
                 <?php
-                }
-               ?>
+            }
+            ?>
 
 
 

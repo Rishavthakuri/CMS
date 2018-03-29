@@ -12,12 +12,14 @@ if(isset($_POST['create_post'])) {
     //$post_comment_count = 4;
 
     move_uploaded_file($post_image_temp, "../images /$post_image");
-    $query = "INSERT INTO posts(post_category_id,post_title,post_author,post_date,post_image,post_content,post_tags,
-     ,post_status)";
+    $query = "INSERT INTO posts(post_category_id,post_title,post_author,post_date,post_image,post_content,post_tags
+     ,post_status) ";
     $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}',
               '{$post_content}','{$post_tags}','{$post_status}')";
     $create_post_query=mysqli_query($connection,$query);
     ConfirmQuery($create_post_query);
+    $the_post_id= mysqli_insert_id($connection);
+    echo" <h4 style='color: red;' class='bg-success'>Post Created (<a href='../post.php?p_id={$the_post_id}' >View post</a>)</h4> ";
 }
 ?>
 
@@ -50,7 +52,13 @@ if(isset($_POST['create_post'])) {
     </div>
     <div class="form-group">
         <label for="post_category">Post Status</label>
-        <input type="text" class="form-control" name="post_status">
+
+        <select class="form-control" style="width:200px;" name="post_status" id="">
+            <option value="draft">Select option</option>
+            <option value="published">Publish</option>
+            <option value="draft">Draft</option>
+        </select>
+
     </div>
     <div class="form-group">
         <label for="post_category">Post Image</label>

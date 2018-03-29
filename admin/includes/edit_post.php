@@ -55,6 +55,8 @@ if(isset($_GET['p_id'])){
         $update_post=mysqli_query($connection,$query);
         ConfirmQuery($update_post);
 
+        echo" <h4 style='color: red;' class='bg-success'>Post Updated (<a href='../post.php?p_id={$the_post_id}' >View post</a>)</h4> ";
+
 
     }
 ?>
