@@ -40,7 +40,7 @@ if(isset($_GET['p_id'])){
              }
         }
 
-        $query= "UPDATE POSTS SET ";
+        $query= "UPDATE posts SET ";
         $query.= "post_title ='{$post_title}',";
         $query.= "post_category_id ='{$post_category_id}',";
         $query.= "post_date =now(),";
