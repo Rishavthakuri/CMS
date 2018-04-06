@@ -1,8 +1,7 @@
 <?php include 'includes/admin_header.php' ?>
     <div id="wrapper">
-
-<?php if($connection){
-    echo "connec";
+<?php if(!$connection){
+    echo "Not connected";
 }
 ?>
 
@@ -22,6 +21,7 @@
                            Welcome to Classified admin
                             <small><?php echo $_SESSION['username'] ?></small>
                         </h1>
+
                     </div>
                 </div>
                 <!-- /.row -->
