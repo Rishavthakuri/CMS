@@ -21,7 +21,7 @@
             while ($row = mysqli_fetch_assoc($select_all_posts_query))
             {
                 $post_title = $row['post_title'];
-                $post_author = $row['post_author'];
+                $post_author = $row['post_user'];
                 $post_date = $row['post_date'];
                 $post_image = $row['post_image'];
                 $post_content = $row['post_content'];
@@ -71,9 +71,9 @@
                     if(!$create_comment_query){
                         die("Query Failed".mysqli_error($connection));
                     }
-                    $query="UPDATE posts SET post_comment_count = post_comment_count + 1 ";
-                    $query .="WHERE post_id= $the_post_id";
-                    $update_comment_count=mysqli_query($connection,$query);
+//                    $query="UPDATE posts SET post_comment_count = post_comment_count + 1 ";
+//                    $query .="WHERE post_id= $the_post_id";
+//                    $update_comment_count=mysqli_query($connection,$query);
 
                 }
                 else{

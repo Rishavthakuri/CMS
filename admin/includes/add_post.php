@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['create_post'])) {
     $post_title = $_POST['title'];
-    $post_author = $_POST['post_author'];
+    $post_user = $_POST['post_user'];
     $post_category_id = $_POST['post_category'];
     $post_status = $_POST['post_status'];
     $post_image = $_FILES['image']['name'];
@@ -12,9 +12,9 @@ if(isset($_POST['create_post'])) {
     //$post_comment_count = 4;
 
     move_uploaded_file($post_image_temp, "../images /$post_image");
-    $query = "INSERT INTO posts(post_category_id,post_title,post_author,post_date,post_image,post_content,post_tags
+    $query = "INSERT INTO posts(post_category_id,post_title,post_user,post_date,post_image,post_content,post_tags
      ,post_status) ";
-    $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}',
+    $query .= "VALUES({$post_category_id},'{$post_title}','{$post_user}',now(),'{$post_image}',
               '{$post_content}','{$post_tags}','{$post_status}')";
     $create_post_query=mysqli_query($connection,$query);
     ConfirmQuery($create_post_query);
@@ -46,10 +46,35 @@ if(isset($_POST['create_post'])) {
             ?>
         </select>
     </div>
-    <div class="form-group">
-        <label for="post_category">Post Author</label>
-        <input type="text" class="form-control" name="post_author">
+
+
+<!--    -->
+<!--    <div class="form-group">-->
+<!--        <label for="post_category">Post Author</label>-->
+<!--        <input type="text" class="form-control" name="post_author">-->
+<!--    </div>-->
+<!--    -->
+
+
+    <div class="form-group" >
+        <label for="category">Users</label>
+        <select class="form-control" style="width:200px;" name="post_user" id="">
+            <?php
+            $cat_id = $_GET['edit'];
+            $users_query = "SELECT * FROM users ";
+            $select_users = mysqli_query($connection,$users_query);
+            ConfirmQuery($select_users);
+            while($row = mysqli_fetch_assoc($select_users)) {
+                $user_id = $row['user_id'];
+                $username = $row['username'];
+                echo "<option  value='{$username}'>{$username}</option>";
+            }
+
+            ?>
+        </select>
     </div>
+
+
     <div class="form-group">
         <label for="post_category">Post Status</label>
 

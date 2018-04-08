@@ -1,4 +1,12 @@
 <?php
+function escape($string){
+    global  $connection;
+    mysqli_real_escape_string($connection,trim($string));
+}
+
+
+
+
 function ConfirmQuery($result){
     global $connection;
     if(!$result){

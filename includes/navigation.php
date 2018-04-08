@@ -33,6 +33,13 @@
                 <li>
                     <a href="admin">Admin</a>
                 </li>
+                <li>
+                    <a href="registration.php">Register</a>
+                </li>
+                <li>
+                    <a href="contact.php">Contact us</a>
+                </li>
+
 <!--                <li>-->
 <!--                    <a href="#">Services</a>-->
 <!--                </li>-->

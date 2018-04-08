@@ -13,6 +13,7 @@ if(isset($_POST['create_user'])) {
     //$post_comment_count = 4;
 
 //    move_uploaded_file($post_image_temp, "../images /$post_image");
+    $user_password= crypt($user_password,'$2a$07$usesomesillystringforsalt$');
     $query = "INSERT INTO users(user_firstname,user_lastname,user_role,username,user_email,user_password)";
     $query .= "VALUES('{$user_firstname}','{$user_lastname}','{$user_role}',
               '{$username}','{$user_email}','{$user_password}') ";
