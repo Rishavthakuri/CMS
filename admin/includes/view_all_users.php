@@ -1,7 +1,7 @@
 
 <?php
 include("delete_modal.php");
-echo"<a href='users.php?source=add_user'><h4 style='text-align: center'> Add User</h4></a>";
+echo"<a  href='users.php?source=add_user'><h4  style='text-align: center'> Add User</h4></a>";
 ?>
 <table class="table table-bordered table-hover">
     <thead>
@@ -65,10 +65,10 @@ echo"<a href='users.php?source=add_user'><h4 style='text-align: center'> Add Use
 
 
 
-        echo "<td> <a href='users.php?change_to_admin={$user_id}'>Admin</a> </td>";
-        echo "<td> <a href='users.php?change_to_sub={$user_id}'> Subscriber </a></td>";
-        echo "<td> <a href='users.php?source=edit_user&edit_user={$user_id}'>Edit</a> </td>";
-        echo "<td> <a rel='$user_id' href='javascript:void(0)' class='delete_link'>Delete</a> </td>";
+        echo "<td> <a  class='btn btn-success' href='users.php?change_to_admin={$user_id}'>Admin</a> </td>";
+        echo "<td> <a class='btn btn-warning' href='users.php?change_to_sub={$user_id}'> Subscriber </a></td>";
+        echo "<td> <a class='btn btn-info' href='users.php?source=edit_user&edit_user={$user_id}'>Edit</a> </td>";
+        echo "<td> <a class='btn btn-danger' rel='$user_id' href='javascript:void(0)' class='delete_link'>Delete</a> </td>";
 //        echo "<td> <a onclick=\"javascript: return confirm('Are you Sure you Want to Delete?');\" href='users.php?delete={$user_id}'>Delete</a> </td>";
         echo "<tr>";
     }

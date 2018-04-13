@@ -3,6 +3,7 @@
 
     <!-- Navigation -->
 <?php include "includes/navigation.php"?>
+<?php session_start();?>
 
     <!-- Page Content -->
     <div class="container">
@@ -15,12 +16,21 @@
 
             if(isset($_GET['category'])) {
                 $post_category_id = $_GET['category'];
+                if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') {
+                    $query = "SELECT * FROM posts WHERE  post_category_id=$post_category_id ";
 
-                $query = "SELECT * FROM posts WHERE  post_category_id=$post_category_id AND post_status='published'";
+
+                } else {
+                    $query = "SELECT * FROM posts WHERE  post_category_id=$post_category_id AND post_status='published'";
+
+                }
+
+
                 $select_all_posts_query = mysqli_query($connection, $query);
                 if (mysqli_num_rows($select_all_posts_query) < 1) {
                     echo " <h1 class='text-center'>No post Publised</h1>";
-                } else {
+                }
+                else {
                     while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
                         $post_id = $row['post_id'];
                         $post_title = $row['post_title'];
@@ -30,8 +40,8 @@
                         $post_content = substr($row['post_content'], 0, 100);
                         ?>
                         <h1 class="page-header">
-                            Page Heading
-                            <small>Secondary Text</small>
+                            posts
+<!--                            <small>Secondary Text</small>-->
                         </h1>
 
                         <!-- First Blog Post -->

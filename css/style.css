@@ -1,0 +1,23 @@
+.pager li .active_link{
+    background: midnightblue !important;
+}
+
+a.active {
+    background-color: skyblue ;
+}
+
+
+.navbar-inverse {
+    background-color: #32204e  ;
+    /*#32204e*/
+}
+
+/* navigation brand */
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+/* navigation categories*/
+.navbar-inverse .navbar-nav>li>a {
+    color: #afacac;
+}

@@ -1,0 +1,43 @@
+
+
+
+
+/* top right admin navigation css*/
+.navbar-inverse {
+    background-color: #32204e !important;
+    border-color: #191616;
+}
+
+.nav.navbar-right.top-nav {
+    background-color: #aee7f2;
+}
+
+.top-nav > li > a {
+    color: #01070c;
+}
+
+
+/* left panel admin navigation css*/
+
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+
+.side-nav {
+
+    background-color: #286483;
+}
+
+/* ----------------- */
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+
+
+body {
+    margin-top: 100px;
+    background-color:#286483;
+}

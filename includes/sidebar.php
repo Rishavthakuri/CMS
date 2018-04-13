@@ -42,8 +42,14 @@
 
     <!-- Login -->
     <div class="well">
+
+        <?php
+        if(isset($_SESSION['user_role'])): ?>
+                <h4> Logged in as <?php echo $_SESSION['username']?> </h4>
+            <a href="includes/logout.php" class="btn btn-primary">Logout</a>
+        <?php else: ?>
         <h4 class="text-center">User Login</h4>
-        <form action="includes/login.php" method="post">
+        <form action="login.php" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input name="username" type="text" placeholder="Enter your Username" class="form-control">
@@ -52,10 +58,15 @@
                 <label for="password">Password</label>
                 <input name="password" type="password" placeholder="Enter your Password" class="form-control">
             </div>
-               <div class="form-group">
-                   <input class="btn btn-primary" type="submit" name="login" value="Login">
-               </div>
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" name="login" value="Login">
+            </div>
         </form>
+
+
+        <?php  endif; ?>
+
+
 
             </div>
         <!-- form search -->
