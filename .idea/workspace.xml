@@ -4,14 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/includes/navigation.php" line="53" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ddf3fd10-0c44-47f4-bdce-0c2a4122379d" name="Default" comment="Removing Bugs">
+    <list default="true" id="ddf3fd10-0c44-47f4-bdce-0c2a4122379d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/cms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cms.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/navigation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,6 +14,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -37,47 +35,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="40" />
-              <folding>
-                <element signature="e#105#134#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/functions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="886">
-              <caret line="230" column="23" lean-forward="true" selection-start-line="230" selection-start-column="7" selection-end-line="230" selection-end-column="23" />
-              <folding>
-                <marker date="1523593313549" expanded="true" signature="4420:4515" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sidebar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/sidebar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="82" column="67" selection-start-line="82" selection-start-column="67" selection-end-line="82" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forget.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="forget.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/forget.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="28" column="62" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="44" />
               <folding>
-                <element signature="e#183#237#0#PHP" expanded="true" />
+                <element signature="e#184#218#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reset.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/reset.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -105,8 +88,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/includes/db.php" />
-        <option value="$PROJECT_DIR$/search.php" />
         <option value="$PROJECT_DIR$/includes/widget.php" />
         <option value="$PROJECT_DIR$/admin/includes/footer.php" />
         <option value="$PROJECT_DIR$/admin/includes/header.php" />
@@ -154,7 +135,10 @@
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/admin/functions.php" />
         <option value="$PROJECT_DIR$/includes/sidebar.php" />
+        <option value="$PROJECT_DIR$/classes/config.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/forget.php" />
+        <option value="$PROJECT_DIR$/reset.php" />
       </list>
     </option>
   </component>
@@ -163,6 +147,12 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+    </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="33" />
@@ -176,7 +166,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -192,12 +181,13 @@
             <path>
               <item name="cms" type="b2602c69:ProjectViewProjectNode" />
               <item name="cms" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="includes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -332,7 +322,8 @@
       <workItem from="1523365637236" duration="10000" />
       <workItem from="1523414121776" duration="17553000" />
       <workItem from="1523507486019" duration="23896000" />
-      <workItem from="1523591169554" duration="7595000" />
+      <workItem from="1523591169554" duration="15063000" />
+      <workItem from="1523631468314" duration="11442000" />
     </task>
     <task id="LOCAL-00001" summary="Added &quot;Select Role Field&quot; + &quot;Bulk Selection&quot;">
       <created>1522211283382</created>
@@ -376,11 +367,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523348286031</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added forget page">
+      <created>1523604941673</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1523604941673</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282151000" />
+    <option name="totallyTimeSpent" value="301061000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -398,13 +396,13 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24670571" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3289689" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.5368249" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -419,19 +417,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24670571" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="4" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.3289689" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -450,40 +448,10 @@
     <MESSAGE value="Show Online Users" />
     <MESSAGE value="Contact us page added" />
     <MESSAGE value="Removing Bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removing Bugs" />
+    <MESSAGE value="added forget page" />
+    <option name="LAST_COMMIT_MESSAGE" value="added forget page" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4215">
-          <caret line="281" column="5" lean-forward="true" selection-start-line="281" selection-start-column="5" selection-end-line="281" selection-end-column="5" />
-          <folding>
-            <marker date="1523593313549" expanded="true" signature="4420:4515" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="940">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/sidebar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/navigation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/search.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
@@ -795,19 +763,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="40" />
-          <folding>
-            <element signature="e#105#134#0#PHP" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ocomposer.json" />
+    <entry file="file://$PROJECT_DIR$/classes/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forget.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="28" column="62" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="44" />
           <folding>
-            <element signature="e#183#237#0#PHP" expanded="true" />
+            <element signature="e#184#218#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
