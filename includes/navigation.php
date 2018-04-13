@@ -76,10 +76,6 @@
 
 
 
-
-
-
-
                 <li>
                     <a href="contact.php">Contact us</a>
                 </li>

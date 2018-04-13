@@ -1,3 +1,20 @@
+
+
+<?php
+if(ifItIsMethod('post')){
+    if(isset($_POST['username']) && isset($_POST['password']))
+    {
+        login_user($_POST['username'],$_POST['password']);
+    }
+    else{
+
+        redirect('..cms/index.php');
+    }
+}
+?>
+
+
+
 <div class="col-md-4">
     <?php
     if (isset($_POST['submit']))
@@ -49,7 +66,7 @@
             <a href="includes/logout.php" class="btn btn-primary">Logout</a>
         <?php else: ?>
         <h4 class="text-center">User Login</h4>
-        <form action="login.php" method="post">
+        <form  method="post">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input name="username" type="text" placeholder="Enter your Username" class="form-control">
@@ -60,6 +77,10 @@
             </div>
             <div class="form-group">
                 <input class="btn btn-primary" type="submit" name="login" value="Login">
+            </div>
+
+            <div class="form-group">
+                <a href="forget.php?forgot=<?php echo uniqid(true);?>">Forget Password</a>
             </div>
         </form>
 

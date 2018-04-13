@@ -39,7 +39,7 @@ if(isset($_POST['submit']))
 ?>
 
 
-
+<?php   include "admin/functions.php";?>
 <!-- Navigation -->
 
 <?php  include "includes/navigation.php"; ?>

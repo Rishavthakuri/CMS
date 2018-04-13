@@ -228,7 +228,7 @@ function register_user($username,$email,$password){
 
 
 function login_user($username,$password){
-     session_start();
+//     session_start();
      global $connection;
      $username=trim($username);
      $password=trim($password);
