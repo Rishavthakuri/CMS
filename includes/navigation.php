@@ -1,7 +1,6 @@
 <!-- Navigation -->
 
 
-
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
 
@@ -50,8 +49,8 @@
 <!--                -->
                 <?php
 
-
-                if(isLoggedIn()):
+                
+//                if(isLoggedIn()):
                     ?>
 
                     <li>
@@ -62,12 +61,12 @@
                         <a href="includes/logout.php">Logout</a>
                     </li>
 
-                <?php else: ?>
+<!--                --><?php //else: ?>
                     <li>
                         <a href="../cms/login.php">Login</a>
                     </li>
 
-                <?php endif; ?>
+<!--                --><?php //endif; ?>
 
 
                 <li>

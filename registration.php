@@ -59,13 +59,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     foreach ($error as $key => $value) {
         if (empty($value)) {
         unset($error[$key]);
-//
         }
     } //for each
 
     if(empty($error)){
-        redirect("index.php");
-    }
+        register_user($username,$email,$password);
+        echo "<h4 style='text-align: center;color: #ff6378;'>Your Registration has been submitted.</h4>";
+        }
 
 }
 
@@ -94,14 +94,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
                         <div class="form-group">
                             <label for="username" class="sr-only">username</label>
-                            <input type="text" name="username" id="username" class="form-control" placeholder="Enter Desired Username" autocomplete="on"
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Enter Desired Username" autocomplete="off"
                             value="<?php echo isset($username) ? $username : '' ?>">
                             <p><?php echo isset($error['username']) ? $error['username'] : '' ?></p>
                         </div>
                          <div class="form-group">
                             <label for="email" class="sr-only">Email</label>
                             <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com"
-                                   autocomplete="on"
+                                   autocomplete="off"
                                    value="<?php echo isset($email) ? $email : '' ?>">
                              <p><?php echo isset($error['email']) ? $error['email'] : '' ?></p>
                         </div>

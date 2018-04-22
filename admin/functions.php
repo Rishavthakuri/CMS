@@ -203,24 +203,24 @@ function register_user($username,$email,$password){
 
 
     $username=mysqli_real_escape_string($connection,$username);
-        $email=mysqli_real_escape_string($connection,$email);
-        $password=mysqli_real_escape_string($connection,$password);
+    $email=mysqli_real_escape_string($connection,$email);
+    $password=mysqli_real_escape_string($connection,$password);
 
-        $query= "SELECT randSalt  FROM users";
-        $select_randSalt_query=mysqli_query($connection,$query);
-        if(!$select_randSalt_query){
-            die("Query Failed".mysqli_error($connection));
-        }
-        $row = mysqli_fetch_array($select_randSalt_query);
-
-
-        $password= crypt($password,'$2a$07$usesomesillystringforsalt$');
+    $query= "SELECT randSalt  FROM users";
+    $select_randSalt_query=mysqli_query($connection,$query);
+    if(!$select_randSalt_query){
+        die("Query Failed".mysqli_error($connection));
+    }
+    $row = mysqli_fetch_array($select_randSalt_query);
 
 
-        $query="INSERT INTO users(username,user_email,user_password,user_role) ";
-        $query.="VALUES('{$username}','{$email}','{$password}','subscriber' ) ";
-        $register_user_query=mysqli_query($connection,$query);
-        ConfirmQuery($register_user_query);
+    $password= crypt($password,'$2a$07$usesomesillystringforsalt$');
+
+
+    $query="INSERT INTO users(username,user_email,user_password,user_role) ";
+    $query.="VALUES('{$username}','{$email}','{$password}','subscriber' ) ";
+    $register_user_query=mysqli_query($connection,$query);
+    ConfirmQuery($register_user_query);
 
 //    $message= "Your Regsiration has been submitted";
 
@@ -229,8 +229,8 @@ function register_user($username,$email,$password){
 
 function login_user($username,$password){
 //     session_start();
-     global $connection;
-     $username=trim($username);
+    global $connection;
+    $username=trim($username);
      $password=trim($password);
 
 

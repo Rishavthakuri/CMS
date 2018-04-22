@@ -88,7 +88,9 @@ if(ifItIsMethod('post')){
 
                                         <input name="login" class="btn btn-lg btn-primary btn-block" value="Login" type="submit">
                                     </div>
-
+                                    <div class="form-group">
+                                        <a href="forget.php?forgot=<?php echo uniqid(true);?>">Forget Password</a>
+                                    </div>
 
                                 </form>
 
