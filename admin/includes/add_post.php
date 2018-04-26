@@ -1,3 +1,6 @@
+
+
+
 <?php
 if(isset($_POST['create_post'])) {
     $post_title = $_POST['title'];
@@ -8,14 +11,19 @@ if(isset($_POST['create_post'])) {
     $post_image_temp = $_FILES['image']['tmp_name'];
     $post_tags = $_POST['post_tags'];
     $post_content = $_POST['post_content'];
+    $post_location_id = $_POST['post_location'];
+
+    $post_price = $_POST['post_price'];
+    $post_address = $_POST['post_address'];
+
     $post_date = date('d-m-y');
     //$post_comment_count = 4;
 
     move_uploaded_file($post_image_temp, "../images /$post_image");
     $query = "INSERT INTO posts(post_category_id,post_title,post_user,post_date,post_image,post_content,post_tags
-     ,post_status) ";
+     ,post_status,post_location_id,post_price,post_address) ";
     $query .= "VALUES({$post_category_id},'{$post_title}','{$post_user}',now(),'{$post_image}',
-              '{$post_content}','{$post_tags}','{$post_status}')";
+              '{$post_content}','{$post_tags}','{$post_status}','{$post_location_id}','{$post_price}','{$post_address}') ";
     $create_post_query=mysqli_query($connection,$query);
     ConfirmQuery($create_post_query);
     $the_post_id= mysqli_insert_id($connection);
@@ -28,6 +36,11 @@ if(isset($_POST['create_post'])) {
     <div class="form-group">
         <label for="title">Post Title</label>
         <input type="text" class="form-control" name="title">
+    </div>
+
+    <div class="form-group">
+        <label for="title">Price(Rs.)</label>
+        <input type="text" style="width:200px;" class="form-control" name="post_price">
     </div>
     <div class="form-group" >
         <label for="category">Category</label>
@@ -47,8 +60,33 @@ if(isset($_POST['create_post'])) {
         </select>
     </div>
 
+    <div class="form-group" >
+        <label for="category">Location</label>
+        <select class="form-control" style="width:200px;" name="post_location" id="">
+            <?php
+            $location_id = $_GET['edit'];
+            $query = "SELECT * FROM location ";
+            $select_location = mysqli_query($connection,$query);
+            ConfirmQuery($select_location);
+            while($row = mysqli_fetch_assoc($select_location)) {
+                $location_id = $row['location_id'];
+                $location_title = $row['location_title'];
+                echo "<option  value='$location_id'>{$location_title}</option>";
+            }
 
-<!--    -->
+            ?>
+        </select>
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="post_address">Address/City</label>
+        <input type="text" style="width:200px;" class="form-control" name="post_address">
+    </div>
+
+
+    <!--    -->
 <!--    <div class="form-group">-->
 <!--        <label for="post_category">Post Author</label>-->
 <!--        <input type="text" class="form-control" name="post_author">-->
@@ -103,3 +141,4 @@ if(isset($_POST['create_post'])) {
         <input type="submit" class="btn btn-primary" name="create_post" value="Add Post">
     </div>
 </form>
+

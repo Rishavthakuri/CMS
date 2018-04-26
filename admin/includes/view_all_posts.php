@@ -35,6 +35,9 @@ if(isset($_POST['checkBoxArray']))
                    $post_image = $row['post_image'];
                    $post_tags = $row['post_tags'];
                    $post_content = $row['post_content'];
+                   $post_location_id = $row['post_location'];
+                   $post_price = $row['post_price'];
+                   $post_address = $row['post_adddress'];
                    if(empty($post_tags))
                    {
                        $post_tags= "No tags";
@@ -43,9 +46,9 @@ if(isset($_POST['checkBoxArray']))
 
                    }
                $query = "INSERT INTO posts(post_category_id,post_title,post_author,post_user,post_date,post_image,post_content,post_tags
-               ,post_status) ";
+               ,post_status,post_location_id,post_price,post_address) ";
                $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}','{$post_user}',now(),'{$post_image}',
-              '{$post_content}','{$post_tags}','{$post_status}')";
+              '{$post_content}','{$post_tags}','{$post_status}','{$post_location_id}','$post_price','$post_address')";
                $copy_query=mysqli_query($connection,$query);
                if(!$copy_query){
                    die("Query Failed".mysqli_error($connection));
@@ -85,8 +88,11 @@ if(isset($_POST['checkBoxArray']))
         <th><input  id="selectAllBoxes" type="checkbox"></th>
         <th>Id</th>
         <th>User</th>
-        <th>Title</th>n
+        <th>Title</th>
+        <th>Price</th>
         <th>Categories</th>
+        <th>Location</th>
+        <th>Address</th>
         <th>Status</th>
         <th>Image</th>
         <th>Tags</th>
@@ -104,10 +110,13 @@ if(isset($_POST['checkBoxArray']))
     $select_posts = mysqli_query($connection,$query);
     while($row = mysqli_fetch_assoc($select_posts )) {
         $post_id = $row['post_id'];
+        $post_price = $row['post_price'];
         $post_author = $row['post_author'];
         $post_user = $row['post_user'];
         $post_title = $row['post_title'];
         $post_category_id = $row['post_category_id'];
+        $post_location_id = $row['post_location_id'];
+        $post_address= $row['post_address'];
         $post_status = $row['post_status'];
         $post_image = $row['post_image'];
         $post_tags = $row['post_tags'];
@@ -132,6 +141,9 @@ if(isset($_POST['checkBoxArray']))
 
 
         echo "<td>$post_title </td>";
+        echo "<td>$post_price </td>";
+
+
         global $connection;
         $query = "SELECT * FROM categories WHERE cat_id={$post_category_id}";
         $select_categories_id = mysqli_query($connection,$query);
@@ -141,6 +153,21 @@ if(isset($_POST['checkBoxArray']))
             $cat_title = $row['cat_title'];
             echo "<td>{$cat_title}</td>";
         }
+
+
+        global  $connection;
+        $query = "SELECT * FROM location WHERE location_id={$post_location_id}";
+        $select_location_id = mysqli_query($connection,$query);
+
+        while($row = mysqli_fetch_assoc($select_location_id)) {
+            $location_id = $row['location_id'];
+            $location_title = $row['location_title'];
+            echo "<td>{$location_title}</td>";
+        }
+
+        echo "<td>$post_address </td>";
+
+
 
         echo "<td>$post_status  </td>";
         echo "<td> <img  style='height: 100px;height: 100px;' src='../images/$post_image' alt='image'></td>";

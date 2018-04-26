@@ -47,10 +47,19 @@
 //                }
 //                ?>
 <!--                -->
+
+
+                <li>
+                    <a class="<?php echo $registration_class;?>" href="../cms/registration.php">Register</a>
+                </li>
+
+                <li>
+                    <a href="contact.php">Contact us</a>
+                </li>
                 <?php
 
                 
-//                if(isLoggedIn()):
+                if(isLoggedIn()):
                     ?>
 
                     <li>
@@ -60,25 +69,19 @@
                     <li>
                         <a href="includes/logout.php">Logout</a>
                     </li>
+                    <li>
+                        <a href="../cms/post_an_ad.php">Post ad</a>
+                    </li>
 
-<!--                --><?php //else: ?>
+                <?php else: ?>
                     <li>
                         <a href="../cms/login.php">Login</a>
                     </li>
 
-<!--                --><?php //endif; ?>
+
+                <?php endif; ?>
 
 
-                <li>
-                    <a class="<?php echo $registration_class;?>" href="../cms/registration.php">Register</a>
-                </li>
-
-
-
-
-                <li>
-                    <a href="contact.php">Contact us</a>
-                </li>
 
 <!--                <li>-->
 <!--                    <a href="#">Services</a>-->

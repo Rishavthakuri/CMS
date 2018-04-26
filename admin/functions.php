@@ -145,6 +145,58 @@ function DeleteCategories(){
 
 
 
+function insert_location()
+{
+    if (isset($_POST['submit'])) {
+        global $connection;
+        $location_title = $_POST['location_title'];
+
+        if ($location_title == "" || empty($location_title)) {
+            echo " This Field should not be empty";
+        } else {
+            $query = "INSERT INTO location(location_title)";
+            $query .= "VALUE('{$location_title}')";
+            $create_location_query = mysqli_query($connection, $query);
+            if (!$create_location_query) {
+                die('Query failed' . mysqli_error($connection));
+            }
+        }
+    }
+}
+
+
+function FindAllLocation(){
+    global $connection;
+    $query = "SELECT * FROM location";
+    $select_location = mysqli_query($connection,$query);
+    while($row = mysqli_fetch_assoc($select_location ))
+    {
+        $location_id = $row['location_id'];
+        $location_title = $row['location_title'];
+
+        echo"<tr>";
+        echo"<td>{$location_id}</td>";
+        echo"<td>{$location_title}</td>";
+        echo"<td><a class='btn btn-danger' href='location.php?delete={$location_id}'</a>Delete </td>";
+        echo"<td><a class='btn btn-primary' href='location.php?edit={$location_id}'</a>Update </td>";
+        echo"</tr>";
+
+    }
+}
+
+
+function DeleteLocation(){
+    if(isset($_GET['delete'])){
+        global $connection;
+        $the_location_id = $_GET['delete'];
+        $query= "DELETE FROM location WHERE location_id={$the_location_id}";
+        $delete_query=mysqli_query($connection,$query);
+        header("Location:location.php");
+
+    }
+}
+
+
 
 function is_admin($username = '')
 {
@@ -258,7 +310,7 @@ function login_user($username,$password){
     {
         header("Location: ../cms/index.php");
     }
-    else if ($username ==$db_username && $password ==$db_user_password )
+    else if ($username ==$db_username && $password ==$db_user_password && $db_user_role=='admin'  )
 //   && $db_user_role=='admin'
     {
         $_SESSION['username'] = $db_username;
@@ -267,6 +319,18 @@ function login_user($username,$password){
         $_SESSION['user_role'] = $db_user_role;
 
         redirect("../cms/admin");
+//        header("Location: ../cms/admin");
+    }
+
+    else if ($username ==$db_username && $password ==$db_user_password && $db_user_role=='subscriber'  )
+//   && $db_user_role=='admin'
+    {
+        $_SESSION['username'] = $db_username;
+        $_SESSION['firstname'] = $db_user_firstname;
+        $_SESSION['lastname'] = $db_user_lastname;
+        $_SESSION['user_role'] = $db_user_role;
+
+        redirect("../cms/post_an_ad.php");
 //        header("Location: ../cms/admin");
     }
 

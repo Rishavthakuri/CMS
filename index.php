@@ -3,7 +3,7 @@
 <?php //include "admin/functions.php";?>
 <?php    ob_start(); ?>
 <!-- Navigation -->
-    <?php session_start();?>
+<?php session_start();?>
 
     <?php include "includes/navigation.php"?>
 
@@ -41,8 +41,6 @@
                     $post_query_count="SELECT * FROM posts ";
 
 
-
-
                 }
                 else {
                     $post_query_count="SELECT * FROM posts where post_status='published' ";
@@ -60,11 +58,12 @@
                          $count = ceil($count / 5);
 
 
-                         $query = "SELECT * FROM posts WHERE  post_status='published' LIMIT $page_1,5 ";
+                         $query = "SELECT * FROM posts WHERE  post_status='published' LIMIT $page_1,5  ";
                          $select_all_posts_query = mysqli_query($connection, $query);
                          while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
                              $post_id = $row['post_id'];
                              $post_title = $row['post_title'];
+                             $post_price = $row['post_price'];
                              $post_author = $row['post_user'];
                              $post_date = $row['post_date'];
                              $post_image = $row['post_image'];
@@ -82,6 +81,7 @@
                                  <h2>
                                      <a href="post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title ?></a>
                                  </h2>
+                                 <h3> Rs.<?php echo  $post_price ?></h3>
                                  <p class="lead">
                                      by
                                      <a href="author_posts.php?author=<?php echo $post_author ?>&p_id=<?php echo $post_id ?>"> <?php echo $post_author ?></a>

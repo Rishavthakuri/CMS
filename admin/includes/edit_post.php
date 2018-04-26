@@ -9,12 +9,15 @@ if(isset($_GET['p_id'])){
     $select_posts_by_id = mysqli_query($connection,$query);
     while($row = mysqli_fetch_assoc($select_posts_by_id)) {
         $post_id = $row['post_id'];
+        $post_price = $row['post_price'];
         $post_user = $row['post_user'];
         $post_title = $row['post_title'];
         $post_category_id = $row['post_category_id'];
         $post_status = $row['post_status'];
         $post_image = $row['post_image'];
         $post_content = $row['post_content'];
+        $post_location_id = $row['post_location_id'];
+        $post_address = $row['post_address'];
         $post_tags = $row['post_tags'];
         $post_comment_count = $row['post_comment_count'];
         $post_date = $row['post_date'];
@@ -22,12 +25,15 @@ if(isset($_GET['p_id'])){
     if(isset($_POST['update_post'])){
 
         $post_user = $_POST['post_user'];
+        $post_price = $_POST['post_price'];
         $post_title = $_POST['title'];
         $post_category_id = $_POST['post_category'];
         $post_status = $_POST['post_status'];
         $post_image = $_FILES['image']['name'];
         $post_image_temp = $_FILES['image']['tmp_name'];
         $post_content = $_POST['post_content'];
+        $post_location_id = $_POST['post_location'];
+        $post_address = $_POST['post_address'];
         $post_tags = $_POST['post_tags'];
 
         move_uploaded_file($post_image_temp,"../images/$post_image");
@@ -42,12 +48,15 @@ if(isset($_GET['p_id'])){
 
         $query= "UPDATE posts SET ";
         $query.= "post_title ='{$post_title}',";
+        $query.= "post_price ='{$post_price}',";
         $query.= "post_category_id ='{$post_category_id}',";
         $query.= "post_date =now(),";
         $query.= "post_user ='{$post_user}',";
         $query.= "post_status ='{$post_status}',";
         $query.= "post_tags ='{$post_tags}',";
         $query.= "post_content ='{$post_content}',";
+        $query.= "post_location_id ='{$post_location_id}',";
+        $query.= "post_address ='{$post_address}',";
         $query.= "post_image ='{$post_image}'";
         $query.= "WHERE post_id = {$the_post_id} ";
 
@@ -66,6 +75,10 @@ if(isset($_GET['p_id'])){
         <label for="title">Post Title</label>
         <input value="<?php echo $post_title; ?>" type="text" class="form-control" name="title">
     </div>
+    <div class="form-group">
+        <label for="title">Price</label>
+        <input value="<?php echo $post_price; ?>" type="text" class="form-control" name="post_price">
+    </div>
     <div class="form-group" >
         <label for="category">Category</label>
         <select class="form-control" style="width:200px;" name="post_category" id="">
@@ -82,6 +95,29 @@ if(isset($_GET['p_id'])){
 
             ?>
         </select>
+    </div>
+
+    <div class="form-group" >
+        <label for="category">Location</label>
+        <select class="form-control" style="width:200px;" name="post_location" id="">
+            <?php
+            $location_id = $_GET['edit'];
+            $query = "SELECT * FROM location ";
+            $select_location = mysqli_query($connection,$query);
+            ConfirmQuery($select_location);
+            while($row = mysqli_fetch_assoc($select_location)) {
+                $location_id = $row['location_id'];
+                $location_title = $row['location_title'];
+                echo "<option  value='$location_id'>{$location_title}</option>";
+            }
+
+            ?>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="post_address">Address</label>
+        <input value="<?php echo $post_address; ?>" type="text" class="form-control" name="post_address">
     </div>
 <!--    <div class="form-group">-->
 <!--        <label for="post_category">Post Author</label>-->

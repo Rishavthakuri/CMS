@@ -1,6 +1,6 @@
 <?php  include "includes/db.php"; ?>
 <?php  include "includes/header.php"; ?>
-
+<?php session_start();?>
 <?php
 
 
@@ -39,7 +39,7 @@ if(isset($_POST['submit']))
 ?>
 
 
-<?php   include "admin/functions.php";?>
+<?php //  include "admin/functions.php";?>
 <!-- Navigation -->
 
 <?php  include "includes/navigation.php"; ?>
