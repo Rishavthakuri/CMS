@@ -51,6 +51,7 @@
 
                 <li>
                     <a class="<?php echo $registration_class;?>" href="../cms/registration.php">Register</a>
+
                 </li>
 
                 <li>
@@ -72,10 +73,14 @@
                     <li>
                         <a href="../cms/post_an_ad.php">Post ad</a>
                     </li>
+                    <li>
+                        <a href="../cms/account-profile.php">My Account</a>
+                    </li>
 
                 <?php else: ?>
                     <li>
-                        <a href="../cms/login.php">Login</a>
+<!--                        <a href="../cms/login.php">Login</a>-->
+                        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-larger">Login</button>
                     </li>
 
 

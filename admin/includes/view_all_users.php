@@ -10,6 +10,7 @@ echo"<a  href='users.php?source=add_user'><h4  style='text-align: center'> Add U
         <th>Username</th>
         <th>Firstname</th>
         <th>Lastname</th>
+        <th>UserImage</th>
         <th>Email</th>
         <th>Role</th>
         <th>Change Role to</th>
@@ -49,6 +50,7 @@ echo"<a  href='users.php?source=add_user'><h4  style='text-align: center'> Add U
 //            echo "<td>{$cat_title}</td>";
 //        }
         echo "<td> $user_lastname </td>";
+        echo "<td> <img  style='height: 100px;height: 100px;' src='../images/$user_image' alt='image'> </td>";
         echo "<td> $user_email </td>";
         echo "<td> $user_role </td>";
 

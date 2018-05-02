@@ -23,10 +23,22 @@ if(isset($_POST['edit_user'])) {
 //    $post_image = $_FILES['image']['name'];
 //    $post_image_temp = $_FILES['image']['tmp_name'];
     $username = $_POST['username'];
+    $user_image = $_FILES['image']['name'];
+    $user_image_temp = $_FILES['image']['tmp_name'];
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
 //    $post_date = date('d-m-y');
     //$post_comment_count = 4;
+
+    move_uploaded_file($user_image_temp,"../images/$user_image");
+    if(empty($user_image)){
+        $query= "SELECT * FROM users WHERE user_id= $the_user_id";
+        $select_image=mysqli_query($connection,$query);
+        while($row = mysqli_fetch_array($select_image)) {
+            $user_image = $row['user_image'];
+
+        }
+    }
 
     $query= "SELECT randSalt FROM users";
     $select_randSalt_query=mysqli_query($connection,$query);
@@ -39,6 +51,9 @@ if(isset($_POST['edit_user'])) {
     $salt=$row['randSalt'];
     $hashed_password=crypt($user_password,$salt);
 
+
+
+
 //    move_uploaded_file($post_image_temp, "../images /$post_image");
     $query= "UPDATE users SET ";
     $query.= "user_firstname ='{$user_firstname}',";
@@ -46,7 +61,8 @@ if(isset($_POST['edit_user'])) {
     $query.= "user_role ='{$user_role}',";
     $query.= "username ='{$username}',";
     $query.= "user_email ='{$user_email}',";
-    $query.= "user_password ='{$hashed_password}'";
+    $query.= "user_password ='{$hashed_password}',";
+    $query.= "user_image ='{$user_image}' ";
     $query.= "WHERE user_id = {$the_user_id} ";
 
     $edit_user_query=mysqli_query($connection,$query);
@@ -94,6 +110,12 @@ if(isset($_POST['edit_user'])) {
     <div class="form-group">
         <label for="post_category">Password</label>
         <input type="password" value="<?php echo $user_password ?>" class="form-control" name="user_password">
+    </div>
+
+
+    <div class="form-group">
+        <img style="width: 100px;" src="../images/<?php echo $user_image;?>" alt="images">
+        <input type="file"  name="image">
     </div>
 
     <div class="form-group">
