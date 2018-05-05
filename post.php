@@ -129,6 +129,8 @@
                                             <h3 class="tab-title">Product Description</h3>
                                             <p><?php echo $post_content ?></p>
                                         </div>
+
+
                                         <div class="comment">
                                             <h4>Leave a Comment:</h4>
                                             <form action="" method="post" role="form">
@@ -146,133 +148,12 @@
                                                 </div>
                                                 <button type="submit" class="btn btn-primary" name="create_comment">Submit</button>
                                             </form>
+                                            <hr >
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-        <div class="col-md-4">
-            <div class="sidebar">
-                <div class="widget price text-center">
-                    <h4>Price</h4>
-                    <p>Rs.<?php echo  $post_price ?></p>
-                </div>
-                <!-- User Profile widget -->
-                <div class="widget user">
-                    <h3 style="margin-left:80px;margin-bottom:50px;">Contact  Seller</h3>
-                    <img class="rounded-circle" style="height: 200px;width: 200px;" src="images/avatar2.png" alt="">
-
-                    <h3 style=" margin-left:110px;"><?php echo $post_user ?></h3>
-                    <h4 style=" margin-left:100px;">(<?php echo $location_title ?>)</h4>
-
-                    <a style="margin-left:110px;"  href="author_posts.php?author=<?php echo $post_user ?>&p_id=<?php echo $the_post_id ?>">See all ads</a>
-                </div>
-                <!-- Map Widget -->
-                <div class="widget user">
-                    <div class="map">
-                        <ul class="list-inline mt-20">
-                            <li class="list-inline-item"> <a href="" class="btn btn-contact">Interested in this Ad? Contact the Seller!</a></li>
-
-                             <p>Phone Number : </p>
-                             <p> Address :  <?php echo $location_title ?>  </p>
-
-                        </ul>
-                    </div>
-                </div>
-                <!-- Rate Widget -->
-                <div class="widget rate">
-                    <!-- Heading -->
-                    <h5 class="widget-header text-center">What would you rate
-                        <br>
-                        this product</h5>
-                    <!-- Rate -->
-                    <div class="starrr"></div>
-                </div>
-                <!-- Safety tips widget -->
-                <div class="widget disclaimer">
-                    <h5 class="widget-header">Safety Tips</h5>
-                    <ul>
-                        <li>Meet seller at a public place</li>
-                        <li>Check the item before you buy</li>
-                        <li>Pay only after collecting the item</li>
-                        <li>Pay only after collecting the item</li>
-                    </ul>
-                </div>
-                <!-- Coupon Widget -->
-
-            </div>
-        </div>
-        <!--
-
-                        <?php
-        }
+                                            <h4 id="post-comment">Post Comments :</h4>
 
 
-        ?>
-
-
-
-
-
-                    <!-- Blog Comments -->
-
-        <?php
-        if (isset($_POST['create_comment'])) {
-            $the_post_id = $_GET['p_id'];
-            $comment_author = $_POST['comment_author'];
-            $comment_email = $_POST['comment_email'];
-            $comment_content = $_POST['comment_content'];
-
-
-            if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
-                $query = "INSERT INTO comments(comment_post_id,comment_author,comment_email,
-                 comment_content,comment_status,comment_date)";
-                            $query .= "VALUES($the_post_id,'{$comment_author}','{$comment_email}',
-                 '{$comment_content}','unapproved',now())";
-
-                            $create_comment_query = mysqli_query($connection, $query);
-                            if (!$create_comment_query) {
-                                die("Query Failed" . mysqli_error($connection));
-                            }
-//                    $query="UPDATE posts SET post_comment_count = post_comment_count + 1 ";
-//                    $query .="WHERE post_id= $the_post_id";
-//                    $update_comment_count=mysqli_query($connection,$query);
-
-                        } else {
-                            echo "<script>alert('Fields cannot be Empty')</script>";
-                        }
-                    }
-
-
-                    ?>
-
-
-                    <!-- Comments Form -->
-<!---->
-<!--                        <h4>Leave a Comment:</h4>-->
-<!--                        <form action="" method="post" role="form">-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="comment_author">Author</label>-->
-<!--                                <input type="text" class="form-control" name="comment_author">-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="comment_email">Email</label>-->
-<!--                                <input type="email" class="form-control" name="comment_email">-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="comment_content">Your Text Here</label>-->
-<!--                                <textarea class="form-control" name="comment_content" rows="3"></textarea>-->
-<!--                            </div>-->
-<!--                            <button type="submit" class="btn btn-primary" name="create_comment">Submit</button>-->
-<!--                        </form>-->
-<!--                    -->
-
-                    <hr>
-
-                    <!-- Posted Comments -->
-                    <?php
+                                                <?php
 
                     $query = "SELECT * FROM comments WHERE comment_post_id = {$the_post_id} ";
                     $query .= "AND comment_status = 'approved' ";
@@ -287,23 +168,134 @@
                         $comment_date = $row['comment_date'];
                         $comment_content = $row['comment_content'];
                         $comment_author = $row['comment_author'];
+                        $comment_email = $row['comment_email'];
                         ?>
 
                         <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" src="http://placehold.it/64x64" alt="">
+                            <a class="pull-left" href="http://placehold.it/64x64">
+                                <img class="media-object" style="height: 50px;width: 50px;" src="images/avatar3.png" alt="">
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><?php echo $comment_author ?>
                                     <small><?php echo $comment_date ?></small>
                                 </h4>
-                                <?php echo $comment_content ?>
+<!--                                <small>--><?php //echo $comment_email ?><!--</small>-->
+
+                                <p><?php echo $comment_content ?></p>
+
                             </div>
                         </div>
 
                         <?php
 
                     }
+
+                    ?>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="sidebar">
+                                <div class="widget price text-center">
+                                    <h4>Price</h4>
+                                    <p>Rs.<?php echo  $post_price ?></p>
+                                </div>
+                                <!-- User Profile widget -->
+                                <div class="widget user">
+                                    <h3 style="margin-left:80px;margin-bottom:50px;">Contact  Seller</h3>
+                                    <div class="user-image">
+                                        <img class="rounded-circle" style="height: 200px;width: 200px;" src="images/avatar2.png" alt="">
+                                    </div>
+
+
+                                    <h3 style=" margin-left:110px;"><?php echo $post_user ?></h3>
+                                    <!--                    <h4 style=" margin-left:100px;">--><?php //echo $location_title ?><!--</h4>-->
+
+                                    <a style="margin-left:110px;color: #00cc00;"  href="author_posts.php?author=<?php echo $post_user ?>&p_id=<?php echo $the_post_id ?>">See all ads</a>
+                                </div>
+                                <!-- Map Widget -->
+                                <div class="widget user">
+                                    <div class="map">
+                                        <ul class="list-inline mt-20">
+                                            <li class="list-inline-item"> <a href="" class="btn btn-contact">Interested in this Ad? Contact the Seller!</a></li>
+
+                                        <p>Phone Number : </p>
+                                            <p> Address :  <?php echo $location_title ?>  </p>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Rate Widget -->
+                                <div class="widget rate">
+                                    <!-- Heading -->
+                                    <h5 class="widget-header text-center">What would you rate
+                                        <br>
+                                        this product</h5>
+                                    <!-- Rate -->
+                                    <div class="starrr"></div>
+                                </div>
+                                <!-- Safety tips widget -->
+                                <div class="widget disclaimer">
+                                    <h5 class="widget-header">Safety Tips</h5>
+                                    <ul>
+                                        <li>Meet seller at a public place</li>
+                                        <li>Check the item before you buy</li>
+                                        <li>Pay only after collecting the item</li>
+                                        <li>Pay only after collecting the item</li>
+                                    </ul>
+                                </div>
+                                <!-- Coupon Widget -->
+
+                            </div>
+                        </div>
+
+
+                        <?php
+                    }
+            ?>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<!-- Blog Comments -->
+
+<?php
+if (isset($_POST['create_comment']))
+{
+    $the_post_id = $_GET['p_id'];
+    $comment_author = $_POST['comment_author'];
+    $comment_email = $_POST['comment_email'];
+    $comment_content = $_POST['comment_content'];
+
+            if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content))
+            {
+                $query = "INSERT INTO comments(comment_post_id,comment_author,comment_email,
+                 comment_content,comment_status,comment_date)";
+                            $query .= "VALUES($the_post_id,'{$comment_author}','{$comment_email}',
+                 '{$comment_content}','unapproved',now())";
+                            $create_comment_query = mysqli_query($connection, $query);
+                            if (!$create_comment_query)
+                            {
+                                die("Query Failed" . mysqli_error($connection));
+                            }
+            }
+
+            else {
+                echo "<script>alert('Fields cannot be Empty')</script>";
+                }
+        }
+        ?>
+<?php
                 }
             }
             else{
@@ -316,11 +308,7 @@
 
 
 
-        </div>
 
-    </div>
-
-</section>
 
         <?php
 

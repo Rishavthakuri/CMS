@@ -48,13 +48,18 @@
         <div class="container">
             <h1>Sell or Advertise   <span class="segment-heading">    anything online </span> with adsnagar</h1>
             <p>Advertisement For All</p>
-            <a href="post_an_ad.php">Post Free Ad</a>
+            <?php
+              if(isLoggedIn()):
+           ?>
+              <a href="post_an_ad.php">Post Free Ad</a>
+            <?php endif; ?>
         </div>
     </div>
 
     <div class="content">
     <div class="categories">
         <div class="container">
+
             <div class="col-md-2 focus-grid">
                 <a href="http://localhost:81/cms/category.php?category=1">
                     <div class="focus-border">
@@ -75,6 +80,7 @@
                     </div>
                 </a>
             </div>
+
             <div class="col-md-2 focus-grid">
                 <a href="http://localhost:81/cms/category.php?category=12">
                     <div class="focus-border">
@@ -85,6 +91,7 @@
                     </div>
                 </a>
             </div>
+
             <div class="col-md-2 focus-grid">
                 <a href="http://localhost:81/cms/category.php?category=11">
                     <div class="focus-border">
@@ -95,6 +102,7 @@
                     </div>
                 </a>
             </div>
+
             <div class="col-md-2 focus-grid">
                 <a href="http://localhost:81/cms/category.php?category=1">
                     <div class="focus-border">
@@ -105,6 +113,7 @@
                     </div>
                 </a>
             </div>
+
             <div class="col-md-2 focus-grid">
                 <a href="http://localhost:81/cms/category.php?category=10">
                     <div class="focus-border">
@@ -115,6 +124,7 @@
                     </div>
                 </a>
             </div>
+
             <div class="col-md-2 focus-grid">
                 <a href="http://localhost:81/cms/category.php?category=9">
                     <div class="focus-border">
@@ -125,6 +135,7 @@
                     </div>
                 </a>
             </div>
+
             <div class="col-md-2 focus-grid">
                 <a href="http://localhost:81/cms/category.php?category=8">
                     <div class="focus-border">
@@ -135,6 +146,7 @@
                     </div>
                 </a>
             </div>
+
             <div class="col-md-2 focus-grid">
                 <a href="http://localhost:81/cms/category.php?category=7">
                     <div class="focus-border">
@@ -145,6 +157,7 @@
                     </div>
                 </a>
             </div>
+
             <div class="col-md-2 focus-grid">
                 <a href="http://localhost:81/cms/category.php?category=4">
                     <div class="focus-border">
@@ -155,6 +168,7 @@
                     </div>
                 </a>
             </div>
+
             <div class="col-md-2 focus-grid">
                 <a href="http://localhost:81/cms/category.php?category=5">
                     <div class="focus-border">
@@ -165,6 +179,7 @@
                     </div>
                 </a>
             </div>
+
             <div class="col-md-2 focus-grid">
                 <a href="http://localhost:81/cms/category.php?category=6">
                     <div class="focus-border">
@@ -175,6 +190,7 @@
                     </div>
                 </a>
             </div>
+
             <div class="clearfix"></div>
         </div>
     </div>
@@ -206,6 +222,7 @@ else{
 
     <section class="popular-deals section bg-gray">
         <div class="container">
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title">
@@ -214,6 +231,7 @@ else{
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <?php
 
@@ -235,7 +253,7 @@ else{
                     else {
 
                         $count = ceil($count / 6);
-                        $query = "SELECT * FROM posts WHERE  post_status='published' LIMIT $page_1,6  ";
+                        $query = "SELECT * FROM posts WHERE  post_status='published' ORDER BY post_id DESC  LIMIT $page_1,6  ";
                         $select_all_posts_query = mysqli_query($connection, $query);
                         while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
                             $post_id = $row['post_id'];
@@ -280,7 +298,6 @@ else{
                                                 <a href=""><i class="fa fa-calendar-alt"></i><?php echo $post_date ?></a>
                                             </li>
                                         </ul>
-                                        <p class="card-text"> <?php echo $post_content ?></p>
                                         <div class="product-ratings">
                                             <ul class="list-inline">
                                                 <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
@@ -299,6 +316,9 @@ else{
                     }
                     ?>
                 </div>
+
+
+
             <ul class="pager">
                 <?php
                 for($i=1;$i<=$count;$i++)
@@ -317,6 +337,109 @@ else{
             </ul>
         </div>
     </section>
+
+
+    <div class="trending-ads">
+            <div class="container">
+                <!-- slider -->
+                <div class="trend-ads">
+                    <h2>Trending Ads</h2>
+                    <ul id="flexiselDemo3">
+                        <li>
+                            <?php
+
+                            $query = "SELECT * FROM posts LIMIT 4 ";
+
+
+                            $select_all_posts_query = mysqli_query($connection, $query);
+                            while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                                $post_id = $row['post_id'];
+                                $post_title = $row['post_title'];
+                                $post_price = $row['post_price'];
+                                $post_author = $row['post_user'];
+                                $post_date = $row['post_date'];
+                                $post_image = $row['post_image'];
+                                $post_content = substr($row['post_content'], 0, 100);
+                                $post_status = $row['post_status'];
+                                $post_category_id = $row['post_category_id'];
+                                ?>
+                                <div class="col-md-3 biseller-column">
+                                    <a href="post.php?p_id=<?php echo $post_id; ?>">
+                                        <img src="images/<?php echo $post_image; ?>">
+                                        <span class="price">&#36; <?php echo  $post_price ?></span>
+                                    </a>
+                                    <div class="ad-info">
+                                        <h5><?php echo $post_title ?></h5>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+
+                            ?>
+                        </li>
+                        <li>
+                            <?php
+                            $query = "SELECT * FROM posts where post_id IN (70,71,72,73)";
+                            $select_all_posts_query = mysqli_query($connection, $query);
+                            while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                                $post_id = $row['post_id'];
+                                $post_title = $row['post_title'];
+                                $post_price = $row['post_price'];
+                                $post_author = $row['post_user'];
+                                $post_date = $row['post_date'];
+                                $post_image = $row['post_image'];
+                                $post_content = substr($row['post_content'], 0, 100);
+                                $post_status = $row['post_status'];
+                                $post_category_id = $row['post_category_id'];
+                                ?>
+                                <div class="col-md-3 biseller-column">
+                                    <a href="post.php?p_id=<?php echo $post_id; ?>">
+                                        <img src="images/<?php echo $post_image; ?>">
+                                        <span class="price">&#36; <?php echo  $post_price ?></span>
+                                    </a>
+                                    <div class="ad-info">
+                                        <h5><?php echo $post_title ?></h5>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+
+                            ?>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $(window).load(function() {
+                $("#flexiselDemo3").flexisel({
+                    visibleItems:1,
+                    animationSpeed: 1000,
+                    autoPlay: true,
+                    autoPlaySpeed: 5000,
+                    pauseOnHover: true,
+                    enableResponsiveBreakpoints: true,
+                    responsiveBreakpoints: {
+                        portrait: {
+                            changePoint:480,
+                            visibleItems:1
+                        },
+                        landscape: {
+                            changePoint:640,
+                            visibleItems:1
+                        },
+                        tablet: {
+                            changePoint:768,
+                            visibleItems:1
+                        }
+                    }
+                });
+
+            });
+        </script>
+        <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+
 
 
 

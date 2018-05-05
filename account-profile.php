@@ -85,86 +85,6 @@ if(isset($_POST['edit_user'])) {
 }
 ?>
 
-<!---->
-<!---->
-<!--<div id="wrapper">-->
-<!--    <div id="page-wrapper">-->
-<!--        <div class="container-fluid">-->
-<!--            <h1 class="page-header col-md-offset-1">-->
-<!--                Account-->
-<!--                <small></small>-->
-<!--            </h1>-->
-<!--            <div class="row">-->
-<!--                <div class="well col-md-offset-1 col-md-7" id="account-profile">-->
-<!---->
-<!--                    <div class="w3-center" id="pro-image">-->
-<!--                        <img class="img-responsive w3-circle w3-margin-top" style="height: 150px;width: 150px;" src="images/--><?php //echo $user_image; ?><!--" alt="image">-->
-<!---->
-<!--<!--                        <img src="images/img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">-->
-<!--                    </div>-->
-<!---->
-<!--                    <form action="" method="post" enctype="multipart/form-data">-->
-<!--                        <div class="form-group" >-->
-<!--                            <label for="user_firstname" class="acc">First Name</label>-->
-<!--                            <input type="text" value="--><?php //echo $user_firstname ?><!--" class="form-control" name="user_firstname">-->
-<!--                        </div>-->
-<!--                        <div class="form-group" >-->
-<!--                            <label for="user_firstname" class="acc">Last Name</label>-->
-<!--                            <input type="text" value="--><?php //echo $user_lastname ?><!--" class="form-control" name="user_lastname">-->
-<!--                        </div>-->
-<!--<!---->
-<!--<!--                        <div class="form-group" >-->
-<!--<!--                            <label for="post_category" class="acc">Username</label>-->
-<!--<!--                            <input type="text" value="--><?php ////echo $username ?><!--<!--" class="form-control" name="username">-->
-<!--<!--                        </div>-->
-<!---->
-<!--                        <div class="form-group" >-->
-<!--                            <label for="post_category" class="acc">Phone Number</label>-->
-<!--                            <input type="text" value="--><?php //echo $phone ?><!--" class="form-control" name="phone">-->
-<!--                        </div>-->
-<!--                        <div class="form-group"  >-->
-<!--                            <label for="category" class="acc">Location</label>-->
-<!--                            <select class="form-control" style="width:200px;" name="post_location" id="">-->
-<!--                                --><?php
-//                                $location_id = $_GET['edit'];
-//                                $query = "SELECT * FROM location ";
-//                                $select_location = mysqli_query($connection,$query);
-//                                ConfirmQuery($select_location);
-//                                while($row = mysqli_fetch_assoc($select_location)) {
-//                                    $location_id = $row['location_id'];
-//                                    $location_title = $row['location_title'];
-//                                    echo "<option  value='$location_id'>{$location_title}</option>";
-//                                }
-//
-//                                ?>
-<!--                            </select>-->
-<!--                        </div>-->
-<!---->
-<!--                        <div class="form-group" >-->
-<!--                            <label for="post_category" class="acc">Email</label>-->
-<!--                            <input type="text" value="--><?php //echo $user_email ?><!--" class="form-control" name="user_email">-->
-<!--                        </div>-->
-<!--                        <div class="form-group" >-->
-<!--                            <label for="post_category" class="acc">Password</label>-->
-<!--                            <input type="password" value="--><?php //echo $user_password ?><!--" class="form-control" name="user_password">-->
-<!--                        </div>-->
-<!---->
-<!--                        <div class="form-group" >-->
-<!--                            <img style="width: 100px;" src="images/--><?php //echo $user_image;?><!--" alt="images">-->
-<!--                            <input type="file"  name="image">-->
-<!--                        </div>-->
-<!---->
-<!--                        <div class="form-group" >-->
-<!--                            <input type="submit" class="btn btn-primary" name="edit_user" value="Update Profile">-->
-<!--                        </div>-->
-<!--                    </form>-->
-<!--                </div>-->
-<!--            </div-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
 
 <section class="user-profile section">
     <div class="container">
@@ -179,15 +99,30 @@ if(isset($_POST['edit_user'])) {
                         </div>
                         <!-- User Name -->
                         <h5 class="text-center"><?php echo $username ?></h5>
-                        <h5 class="text-center"><?php echo $user_email ?></h5>
+                        <p class="text-center"><?php echo $user_email ?></p>
 <!--                        <p>Joined February 06, 2017</p>-->
                     </div>
                     <!-- Dashboard Links -->
                     <div class="widget user-dashboard-menu">
+                        <?php
+                        $query = "SELECT * FROM posts";
+                        $select_all_posts_query = mysqli_query($connection, $query);
+                        while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                            $post_id = $row['post_id'];
+                            $post_title = $row['post_title'];
+                            $post_price = $row['post_price'];
+                            $post_author = $row['post_user'];
+                            $post_date = $row['post_date'];
+                            $post_image = $row['post_image'];
+                            $post_content = substr($row['post_content'], 0, 100);
+                            $post_status = $row['post_status'];
+                            $post_category_id = $row['post_category_id'];
+                        }
+                        ?>
                         <ul>
                             <li>
 
-                                <a href="http://localhost:81/cms/user-dashboard.php"><i class="fa fa-user"></i> My Ads</a></li>
+                                <a href='user-dashboard.php?user=<? echo $_SESSION['username']?>'><i class="fa fa-user"></i> My Ads</a></li>
                             <li>
                                 <a href="includes/logout.php"><i class="fa fa-cog"></i> Logout</a>
                             </li>

@@ -117,7 +117,7 @@
                 $the_post_author=$_GET['author'];
             }
 
-            $query = "SELECT * FROM posts WHERE post_user = '{$the_post_author}' ";
+            $query = "SELECT * FROM posts WHERE post_user = '{$the_post_author}'  ORDER BY post_id DESC ";
             $select_all_posts_query = mysqli_query($connection, $query);
             while ($row = mysqli_fetch_assoc($select_all_posts_query))
             {
@@ -126,6 +126,10 @@
             $post_date = $row['post_date'];
             $post_image = $row['post_image'];
             $post_content = $row['post_content'];
+            $post_category_id = $row['post_category_id'];
+            $post_location_id = $row['post_location_id'];
+            $post_price = $row['post_price'];
+            $post_address = $row['post_address'];
 
             ?>
                     <td class="product-thumb">
@@ -178,24 +182,5 @@
         <!-- Container End -->
     </section>
 
-
-<?php
-
-        if(ifItIsMethod('post')){
-        if(isset($_POST['username']) && isset($_POST['password']))
-        {
-        login_user($_POST['username'],$_POST['password']);
-        }
-        else{
-
-        redirect('..cms/index.php');
-        }
-        }
-
-        ?>
-
-
-
-    <hr>
 
 <?php include "includes/footer.php"?>

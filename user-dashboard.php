@@ -4,21 +4,6 @@
 <?php session_start();?>
 <?php  include "includes/navigation.php"; ?>
 
-<?php
-if(isset($_SESSION['username'])) {
-
-    $username = $_SESSION['username'];
-    $query = "SELECT * FROM users WHERE username ='{$username}' ";
-    $select_user_profile_query = mysqli_query($connection, $query);
-    while ($row = mysqli_fetch_array($select_user_profile_query)) {
-        $user_id = $row['user_id'];
-        $user_email = $row['user_email'];
-        $user_image = $row['user_image'];
-
-
-    }
-}
-?>
 
 
 
@@ -28,10 +13,29 @@ if(isset($_SESSION['username'])) {
     <div class="container">
         <!-- Row Start -->
         <div class="row">
+
+
+
             <div class="col-md-10 offset-md-1 col-lg-4 offset-lg-0">
                 <div class="sidebar">
                     <!-- User Widget -->
                     <div class="widget user-dashboard-profile">
+                        <?php
+                        if(isset($_SESSION['username'])) {
+
+                            $username = $_SESSION['username'];
+                            $query = "SELECT * FROM users WHERE username ='{$username}' ";
+                            $select_user_profile_query = mysqli_query($connection, $query);
+                            while ($row = mysqli_fetch_array($select_user_profile_query)) {
+                                $user_id = $row['user_id'];
+                                $user_email = $row['user_email'];
+                                $user_image = $row['user_image'];
+
+
+                            }
+                        }
+                        ?>
+
                         <!-- User Image -->
                         <div class="profile-thumb">
                             <img src="images/<?php echo $user_image; ?>" alt="" class="rounded-circle">
@@ -68,73 +72,59 @@ if(isset($_SESSION['username'])) {
                             <th>Image</th>
                             <th>Product Title</th>
                             <th class="text-center">Category</th>
-                            <th class="text-center">Action</th>
+
                         </tr>
                         </thead>
                         <tbody>
+                        <?php
 
+                        if(isset($_GET['user'])){
 
-                        <tr>
-                            <?php
+                            $the_post_user=$_GET['user'];
 
-                             global $connection;
-                            $query = "SELECT * FROM posts WHERE username = '{$post_user}' ";
-                            $select_all_posts_query = mysqli_query($connection, $query);
-                            while ($row = mysqli_fetch_assoc($select_all_posts_query))
-                            {
+                            }
+
+                        $query = "SELECT * FROM posts WHERE post_user= '{$the_post_user}'";
+                        $select_all_posts_query = mysqli_query($connection, $query);
+                        while ($row = mysqli_fetch_assoc($select_all_posts_query))
+                        {
                             $post_title = $row['post_title'];
                             $post_author = $row['post_user'];
                             $post_date = $row['post_date'];
                             $post_image = $row['post_image'];
+                            $post_category_id = $row['post_category_id'];
+                            $post_price = $row['post_price'];
 
 
                             ?>
-
                             <td class="product-thumb">
                                 <img width="80px" height="auto" src="images/<?php echo $post_image; ?>" alt="image description"></td>
                             <td class="product-details">
                                 <h3 class="title"><?php echo $post_title ?></h3>
                                 <span><strong>Posted on: </strong><time><?php echo $post_date ?></time> </span>
+                                <span><strong>Price: </strong><time><?php echo $post_price ?></time> </span>
                             </td>
-                            <td class="product-category"><span class="categories">
-                                <?php
-                                global $connection;
-                                $query = "SELECT * FROM categories WHERE cat_id={$post_category_id}";
-                                $select_categories_id = mysqli_query($connection,$query);
+                            <td class="product-category">
+                        <span class="categories">
+                            <?php
+                            global $connection;
+                            $query = "SELECT * FROM categories WHERE cat_id={$post_category_id}";
+                            $select_categories_id = mysqli_query($connection,$query);
 
-                                while($row = mysqli_fetch_assoc($select_categories_id)) {
-                                    $cat_id = $row['cat_id'];
-                                    $cat_title = $row['cat_title'];
-                                    echo "<td>{$cat_title}</td>";
-                                }
-                                ?>
-                                </span></td>
-                            <td class="action" data-title="Action">
-                                <div class="">
-                                    <ul class="list-inline justify-content-center">
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="">
-                                                <i class="fa fa-eye"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="edit" href="">
-                                                <i class="fa fa-pencil"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="delete" href="">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            while($row = mysqli_fetch_assoc($select_categories_id)) {
+                                $cat_id = $row['cat_id'];
+                                $cat_title = $row['cat_title'];
+                                echo "{$cat_title}";
+                            }
+                            ?>
+                        </span>
                             </td>
-                        </tr>
-                        <?php
+                            </tr>
+
+
+                            <?php
                         }
                         ?>
-
                         </tbody>
                     </table>
 
