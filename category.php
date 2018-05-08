@@ -45,9 +45,42 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="search-result bg-gray">
+                    <?php
 
-                    <h2>Results For </h2>
-                    <p>123 Results on 12 December, 2017</p>
+                    if(isset($_GET['category'])) {
+                        $post_category_id = $_GET['category'];
+                    }
+                    $query = "SELECT * FROM posts WHERE  post_category_id=$post_category_id";
+
+                    $select_all_posts_query = mysqli_query($connection,$query);
+                    while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                        $post_id = $row['post_id'];
+                        $post_title = $row['post_title'];
+                        $post_location_id = $row['post_location_id'];
+                        $post_author = $row['post_author'];
+                        $post_category_id = $row['post_category_id'];
+                        $post_date = $row['post_date'];
+                        $post_image = $row['post_image'];
+                        $post_content = substr($row['post_content'], 0, 100);
+                        ?>
+
+
+                        <?php global $connection;
+                        $query = "SELECT * FROM categories WHERE cat_id={$post_category_id}";
+                        $select_category_id = mysqli_query($connection, $query);
+
+                        while ($row = mysqli_fetch_assoc($select_category_id)) {
+                            $cat_id = $row['cat_id'];
+                            $cat_title = $row['cat_title'];
+
+                            ?>
+                            <h4>Result For : <?php echo "<td>{$cat_title}</td>"?></h4>
+
+                            <?php
+                        }
+                    }
+                    ?>
+
                 </div>
             </div>
         </div>
@@ -144,7 +177,7 @@
                                 <div class="card">
                                     <div class="thumb-content">
                                         <!-- <div class="price">$200</div> -->
-                                        <a href="">
+                                        <a href="post.php?p_id=<?php echo $post_id; ?>">
                                             <img class="card-img-top img-fluid" src="images/<?php echo $post_image; ?>" alt="Card image cap">
                                         </a>
                                     </div>

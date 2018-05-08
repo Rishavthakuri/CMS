@@ -71,11 +71,12 @@
                         <a href="includes/logout.php">Logout</a>
                     </li>
                     <li>
-                        <a href="../cms/post_an_ad.php">Post ad</a>
-                    </li>
-                    <li>
                         <a href="../cms/account-profile.php">My Account</a>
                     </li>
+                    <li>
+                        <a href="../cms/post_an_ad.php" class="w3-button w3-green w3-larger">Post ad</a>
+                    </li>
+
 
                 <?php else: ?>
                     <li>

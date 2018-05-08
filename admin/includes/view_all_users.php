@@ -8,8 +8,7 @@ echo"<a  href='users.php?source=add_user'><h4  style='text-align: center'> Add U
     <tr>
         <th>Id</th>
         <th>Username</th>
-        <th>Firstname</th>
-        <th>Lastname</th>
+        <th>Phone</th>
         <th>UserImage</th>
         <th>Email</th>
         <th>Role</th>
@@ -31,6 +30,7 @@ echo"<a  href='users.php?source=add_user'><h4  style='text-align: center'> Add U
         $user_password= $row['user_password'];
         $user_firstname= $row['user_firstname'];
         $user_lastname = $row['user_lastname'];
+        $phone = $row['phone'];
         $user_email = $row['user_email'];
         $user_image = $row['user_image'];
         $user_role = $row['user_role'];
@@ -38,35 +38,11 @@ echo"<a  href='users.php?source=add_user'><h4  style='text-align: center'> Add U
         echo "<tr>";
         echo "<td> $user_id </td>";
         echo "<td> $username </td>";
-        echo "<td>$user_firstname </td>";
+        echo "<td> $phone </td>";
 
-//        global $connection;
-//        $query = "SELECT * FROM categories WHERE cat_id={$post_category_id}";
-//        $select_categories_id = mysqli_query($connection,$query);
-//
-//        while($row = mysqli_fetch_assoc($select_categories_id)) {
-//            $cat_id = $row['cat_id'];
-//            $cat_title = $row['cat_title'];
-//            echo "<td>{$cat_title}</td>";
-//        }
-        echo "<td> $user_lastname </td>";
-        echo "<td> <img  style='height: 100px;height: 100px;' src='../images/$user_image' alt='image'> </td>";
+        echo "<td> <img  style='height: 80px;height: 80px;' src='../images/$user_image' alt='image'> </td>";
         echo "<td> $user_email </td>";
         echo "<td> $user_role </td>";
-
-
-//        $query="SELECT * FROM posts WHERE post_id = $comment_post_id";
-//        $select_post_id_query=mysqli_query($connection,$query);
-//        while($row = mysqli_fetch_assoc($select_post_id_query))
-//        {
-//            $post_id= $row['post_id'];
-//            $post_title= $row['post_title'];
-//            echo "<td><a href='../post.php?p_id=$post_id'>{$post_title}</a>  </td>";
-//        }
-
-
-
-
         echo "<td> <a  class='btn btn-success' href='users.php?change_to_admin={$user_id}'>Admin</a> </td>";
         echo "<td> <a class='btn btn-warning' href='users.php?change_to_sub={$user_id}'> Subscriber </a></td>";
         echo "<td> <a class='btn btn-info' href='users.php?source=edit_user&edit_user={$user_id}'>Edit</a> </td>";

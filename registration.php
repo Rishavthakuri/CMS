@@ -47,6 +47,45 @@ if(ifItIsMethod('post')){
 }
 ?>
 
+<?php
+
+if(isset($_POST['register']))
+{
+    $username =$_POST['username'];
+    $secret= '6Lej9FcUAAAAAHxQFLqKYVus7ni_J6EQ6teiuXbg';
+    $response= $_POST['g-recaptcha-response'];
+    $remoteip= $_SERVER['REMOTE_ADDR'];
+
+    $url ='https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$response.'&remoteip='.$remoteip;
+
+
+    $options=array(
+        'ssl'=>array(
+            'cafile'            => '/opt/lampp/htdocs/cms/cacert.pem',
+            'verify_peer'       => true,
+            'verify_peer_name'  => true,
+        ),
+    );
+
+    $context = stream_context_create( $options );
+    $verify= file_get_contents($url,FILE_TEXT,$context);
+    $json=json_decode($verify);
+    if($json->success)
+    {
+        echo "";
+    }
+    else
+    {
+        echo "<h3 style='text-align: center;color: red;'>Registration Failed<h3>";
+    }
+}
+
+
+
+
+
+?>
+
 
 
 
@@ -59,13 +98,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $username = trim($_POST['username']);
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
+    $phone = trim($_POST['phone']);
+//    $user_image = $_FILES['image']['name'];
+//    $user_image_temp = $_FILES['image']['tmp_name'];
 
+//    move_uploaded_file($user_image_temp, "images/$user_image");
 
     $error = [
 
         'username' => '',
         'email' => '',
-        'password' => ''
+        'password' => '',
+        'phone' => '',
+        'user_image' => ''
 
     ];
 
@@ -104,6 +149,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
 
+    //phone number validation
+
+    if ($phone == '') {
+        $error['phone'] = 'Phone no Cannot be Empty';
+    }
+
+
+    //user-image validation
+
+//
+//    if ($user_image == '') {
+//        $error['user_image'] = 'Upload Your Image';
+//    }
+
     foreach ($error as $key => $value) {
         if (empty($value)) {
         unset($error[$key]);
@@ -111,7 +170,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     } //for each
 
     if(empty($error)){
-        register_user($username,$email,$password);
+        register_user($username,$email,$password,$phone);
         echo "<h4 style='text-align: center;color: #ff6378;'>Your Registration has been submitted.</h4>";
         }
 
@@ -165,6 +224,23 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                             <input type="password" name="password" id="key" class="form-control" placeholder="Password">
                              <p><?php echo isset($error['password']) ? $error['password'] : '' ?></p>
                         </div>
+
+                        <div class="form-group">
+                            <label for="phone" >Phone no.</label>
+                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone no">
+                            <value="<?php echo isset($phone) ? $phone : '' ?>">
+                            <p><?php echo isset($error['phone']) ? $error['phone'] : '' ?></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="user_image">Profile Picture</label>
+                            <input type="file"  name="image" id="user_image">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6Lej9FcUAAAAAIkrnCni8wHscM4Nh_TU-np1Qwim"></div>
+                        </div>
+                        <br>
                 
                         <input type="submit" name="register" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Register">
                     </form>

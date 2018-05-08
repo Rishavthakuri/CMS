@@ -69,6 +69,9 @@
                     while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
 
                         $post_title = $row['post_title'];
+                        $post_user_phone = $row['post_user_phone'];
+                        $post_user_image = $row['post_user_image'];
+                        $post_user_email = $row['post_user_email'];
                         $post_user = $row['post_user'];
                         $post_date = $row['post_date'];
                         $post_image = $row['post_image'];
@@ -88,7 +91,7 @@
                                 <div class="product-meta">
                                     <ul class="list-inline">
                                         <li class="list-inline-item"><i class="fa fa-user-o"></i> By <a href=""><?php echo $post_user ?></a></li>
-                                        <li class="list-inline-item"><i class="fa fa-folder-open-o"></i> Category<a href="category.php?category=$cat_id">
+                                        <li class="list-inline-item"><i class="fa fa-folder-open-o"></i> Category
                                                 <?php
                                                 global $connection;
                                                 $query = "SELECT * FROM categories WHERE cat_id={$post_category_id}";
@@ -97,10 +100,10 @@
                                                 while($row = mysqli_fetch_assoc($select_categories_id)) {
                                                     $cat_id = $row['cat_id'];
                                                     $cat_title = $row['cat_title'];
-                                                    echo "<td>{$cat_title}</td>";
+                                                    echo "<a href=\"category.php?category=$cat_id\"><td>{$cat_title}</td> </a>";
                                                 }
                                                 ?>
-                                            </a></li>
+                                            </li>
                                         <li class="list-inline-item"><i class="fa fa-location-arrow"></i> Location
                                                 <?php
                                                 global  $connection;
@@ -110,9 +113,14 @@
                                                 while($row = mysqli_fetch_assoc($select_location_id)) {
                                                     $location_id = $row['location_id'];
                                                     $location_title = $row['location_title'];
-                                                    echo "<td>{$location_title}</td>";
+                                                   ?> <?php echo "<td>{$location_title}</td>";
+
+//
                                                 }
+
                                                 ?>
+
+
                                             </li>
                                     </ul>
                                 </div>
@@ -120,7 +128,7 @@
 
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img class="d-block w-100" style="width:500px;height:350px;" src="images/<?php echo $post_image; ?>" alt="Card image cap">
+                                            <img class="d-block w-100" style="width:500px;height:600px;" src="images/<?php echo $post_image; ?>" alt="Card image cap">
                                         </div>
 
                                 </div>
@@ -208,7 +216,7 @@
                                 <div class="widget user">
                                     <h3 style="margin-left:80px;margin-bottom:50px;">Contact  Seller</h3>
                                     <div class="user-image">
-                                        <img class="rounded-circle" style="height: 200px;width: 200px;" src="images/avatar2.png" alt="">
+                                        <img class="rounded-circle" style="height: 200px;width: 200px;" src="images/<?php echo $post_user_image; ?>" alt="">
                                     </div>
 
 
@@ -221,10 +229,11 @@
                                 <div class="widget user">
                                     <div class="map">
                                         <ul class="list-inline mt-20">
-                                            <li class="list-inline-item"> <a href="" class="btn btn-contact">Interested in this Ad? Contact the Seller!</a></li>
+                                            <li class="list-inline-item"> <a href="" class="btn btn-contact">Interested in this Ad? Contact the Seller!</a>
 
-                                        <p>Phone Number : </p>
-                                            <p> Address :  <?php echo $location_title ?>  </p>
+
+                                        <p  style="font-size: large;color:green">Phone Number : <?php echo $post_user_phone?> </p>
+                                            <p style="font-size: large;"> Address :  <?php echo $location_title ?>  </p>
 
                                         </ul>
                                     </div>
@@ -239,13 +248,35 @@
                                     <div class="starrr"></div>
                                 </div>
                                 <!-- Safety tips widget -->
+<!--                                <div class="widget disclaimer">-->
+<!--                                    <h5 class="widget-header">Safety Tips</h5>-->
+<!--                                    <ul>-->
+<!--                                        <li>Meet seller at a public place</li>-->
+<!--                                        <li>Check the item before you buy</li>-->
+<!--                                        <li>Pay only after collecting the item</li>-->
+<!--                                        <li>Pay only after collecting the item</li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
                                 <div class="widget disclaimer">
-                                    <h5 class="widget-header">Safety Tips</h5>
+                                    <h5 class="widget-header">Contact Seller</h5>
                                     <ul>
-                                        <li>Meet seller at a public place</li>
-                                        <li>Check the item before you buy</li>
-                                        <li>Pay only after collecting the item</li>
-                                        <li>Pay only after collecting the item</li>
+                                        <form role="form" action="" method="post" id="login-form" autocomplete="off">
+
+                                            <div class="form-group">
+                                                <label for="email" >Email</label>
+                                                <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="subject" >Subject</label>
+                                                <input type="text" name="subject" id="subject" class="form-control" placeholder="Enter your Subject">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message" >Message</label>
+                                                <textarea class="form-control" name="body" id="body" cols="10" rows="2"></textarea>
+                                            </div>
+
+                                            <input type="submit" name="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" name="submit" value="Submit">
+                                        </form>
                                     </ul>
                                 </div>
                                 <!-- Coupon Widget -->
@@ -261,6 +292,45 @@
     </div>
 </section>
 
+
+
+<?php
+
+$select_all_posts_query = mysqli_query($connection, $query);
+while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
+    $post_user_email = $row['post_user_email'];
+
+
+    if (isset($_POST['submit'])) {
+        require_once "Mail.php";
+        $from = $_POST['email'];
+        $to = $post_user_email;
+        $subject = wordwrap($_POST['subject'], 70);
+        $body = $_POST['body'];
+        $host = "cpanel.freehosting.com";
+        $username = "info@rishavthakuri.com.np";
+        $password = "samsung54606";
+        $headers = array('From' => $from,
+            'To' => $to,
+            'Subject' => $subject);
+        $smtp = Mail::factory('smtp',
+            array('host' => $host,
+                'auth' => true,
+                'username' => $username,
+                'password' => $password));
+        $mail = $smtp->send($to, $headers, $body);
+        if (PEAR::isError($mail)) {
+            echo("<p>" . $mail->getMessage() . "</p>");
+        } else {
+            echo(" <center><p>Message successfully sent!</p></center>");
+        }
+
+
+    }
+}
+
+
+?>
 
 
 

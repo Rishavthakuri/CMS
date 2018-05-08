@@ -10,6 +10,10 @@
 if(isset($_POST['create_post'])) {
     $post_title = $_POST['title'];
     $post_user = $_SESSION['username'];
+    $post_user_phone = $_SESSION['phone'];
+   $post_user_image = $_SESSION['user_image'];
+    $post_user_email= $_SESSION['user_email'];
+
     $post_category_id = $_POST['post_category'];
 //    $post_status = $_POST['post_status'];
     $post_image = $_FILES['image']['name'];
@@ -25,14 +29,15 @@ if(isset($_POST['create_post'])) {
     //$post_comment_count = 4;
 
     move_uploaded_file($post_image_temp, "images/$post_image");
-    $query = "INSERT INTO posts(post_category_id,post_user,post_title,post_date,post_image,post_content,post_tags
+    $query = "INSERT INTO posts(post_category_id,post_user,post_user_phone,post_user_image,post_user_email,post_title,post_date,post_image,post_content,post_tags
     ,post_location_id,post_price,post_address) ";
-    $query .= "VALUES({$post_category_id},'{$post_user}','{$post_title}',now(),'{$post_image}',
+    $query .= "VALUES({$post_category_id},'{$post_user}','{$post_user_phone}','{$post_user_image}','{$post_user_email}','{$post_title}',now(),'{$post_image}',
               '{$post_content}','{$post_tags}','{$post_location_id}','{$post_price}','{$post_address}') ";
     $create_post_query=mysqli_query($connection,$query);
     ConfirmQuery($create_post_query);
     $the_post_id= mysqli_insert_id($connection);
-//    echo" <h4 style='color: red;' class='bg-success'>Post Created (<a href='../post.php?p_id={$the_post_id}' >View post</a>)</h4> ";
+
+
 }
 ?>
 <div class=" banner text-center">
@@ -43,7 +48,7 @@ if(isset($_POST['create_post'])) {
     </div>
 </div>
 
-<h2 class="col-md-offset-1">Post an Ad</h2>
+<h2 class="col-md-offset-1 post-ad">Post an Ad</h2>
 <br>
 
 <div class="well col-md-offset-1 col-md-7">

@@ -92,12 +92,9 @@ if(isset($_POST['checkBoxArray']))
         <th>Price</th>
         <th>Categories</th>
         <th>Location</th>
-        <th>Address</th>
         <th>Status</th>
         <th>Image</th>
-        <th>Tags</th>
         <th>Comments</th>
-        <th>Date</th>
         <th>View</th>
         <th>Action</th>
         <th>Action</th>
@@ -127,6 +124,8 @@ if(isset($_POST['checkBoxArray']))
         <td><input  class='checkBoxes' type='checkbox' name='checkBoxArray[]' value='<?php echo $post_id ?>'></td>
         <?php
         echo "<td> $post_id</td>";
+
+
 
 
 
@@ -165,13 +164,13 @@ if(isset($_POST['checkBoxArray']))
             echo "<td>{$location_title}</td>";
         }
 
-        echo "<td>$post_address </td>";
+//        echo "<td>$post_address </td>";
 
 
 
         echo "<td>$post_status  </td>";
         echo "<td> <img  style='height: 100px;height: 100px;' src='../images/$post_image' alt='image'></td>";
-        echo "<td>$post_tags </td>";
+//        echo "<td>$post_tags </td>";
 
 
         $query = "SELECT * FROM comments WHERE comment_post_id = $post_id ";
@@ -182,7 +181,7 @@ if(isset($_POST['checkBoxArray']))
 
 
         echo "<td>$count_comments </td>";
-        echo "<td> $post_date</td>";
+//        echo "<td> $post_date</td>";
         echo "<td> <a class='btn btn-primary' href='../post.php?p_id={$post_id}'>View Post</a> </td>";
         echo "<td> <a class='btn btn-info' href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a> </td>";
 

@@ -38,7 +38,7 @@
 
                         <!-- User Image -->
                         <div class="profile-thumb">
-                            <img src="images/<?php echo $user_image; ?>" alt="" class="rounded-circle">
+                            <img src="images/<?php echo $user_image; ?>" alt="Image not Found"  o class="rounded-circle">
                         </div>
                         <!-- User Name -->
                         <h5 class="text-center"><?php echo $username ?></h5>

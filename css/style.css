@@ -852,7 +852,9 @@ i.real-estate {
 
 a.btn.btn-contact {
     margin-left: -35px;
-    color: #ff6164;
+    color: #1b2a98;
+    background-color: #e4e2e2;
+    margin-bottom: 20px;
 }
 
 
@@ -1449,4 +1451,28 @@ h4#post-comment {
 }
 .media {
     margin-top: 30px;
+}
+
+h2.col-md-offset-1.post-ad {
+    color: #85ec14;
+}
+
+label {
+
+    color: #3282a0 !important ;
+}
+
+/*.g-recaptcha {*/
+    /*text-align: center;*/
+    /*margin-left: 20%;*/
+/*}*/
+
+
+input[type="file"] {
+    color: red;
+}
+
+img.card-img-top.img-fluid {
+
+    margin-left: 80px;
 }

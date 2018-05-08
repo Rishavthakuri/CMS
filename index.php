@@ -5,6 +5,8 @@
 <!-- Navigation -->
 <?php session_start();?>
 
+
+
 <?php include "includes/navigation.php"?>
 
 
@@ -273,7 +275,7 @@ else{
                                     <div class="thumb-content">
                                         <div class="price">Rs.<?php echo  $post_price ?></div>
                                         <a href="post.php?p_id=<?php echo $post_id; ?>">
-                                            <img class="card-img-top img-fluid" style="width: 380px;height: 240px;" src="images/<?php echo $post_image; ?>" alt="Card image cap">
+                                            <img class="card-img-top img-fluid" style="width: 200px;height: 240px;" src="images/<?php echo $post_image; ?>" alt="Card image cap">
                                         </a>
                                     </div>
                                     <div class="card-body">
@@ -365,7 +367,7 @@ else{
                                 ?>
                                 <div class="col-md-3 biseller-column">
                                     <a href="post.php?p_id=<?php echo $post_id; ?>">
-                                        <img src="images/<?php echo $post_image; ?>">
+                                        <img style="width:300;height: 300px; " src="images/<?php echo $post_image; ?>">
                                         <span class="price">&#36; <?php echo  $post_price ?></span>
                                     </a>
                                     <div class="ad-info">

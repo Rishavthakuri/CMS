@@ -247,7 +247,7 @@ function email_exists($email){
     }
 }
 
-function register_user($username,$email,$password){
+function register_user($username,$email,$password,$phone){
     global  $connection;
 //    $username=$_POST['username'];
 //    $email=$_POST['email'];
@@ -257,6 +257,8 @@ function register_user($username,$email,$password){
     $username=mysqli_real_escape_string($connection,$username);
     $email=mysqli_real_escape_string($connection,$email);
     $password=mysqli_real_escape_string($connection,$password);
+    $phone=mysqli_real_escape_string($connection,$phone);
+
 
     $query= "SELECT randSalt  FROM users";
     $select_randSalt_query=mysqli_query($connection,$query);
@@ -269,8 +271,8 @@ function register_user($username,$email,$password){
     $password= crypt($password,'$2a$07$usesomesillystringforsalt$');
 
 
-    $query="INSERT INTO users(username,user_email,user_password,user_role) ";
-    $query.="VALUES('{$username}','{$email}','{$password}','subscriber' ) ";
+    $query="INSERT INTO users(username,user_email,user_password,phone,user_role) ";
+    $query.="VALUES('{$username}','{$email}','{$password}','{$phone}','subscriber' ) ";
     $register_user_query=mysqli_query($connection,$query);
     ConfirmQuery($register_user_query);
 
@@ -300,10 +302,14 @@ function login_user($username,$password){
     while($row=mysqli_fetch_array($select_user_query)){
         $db_user_id= $row['user_id'];
         $db_username= $row['username'];
+        $db_phone_no= $row['phone'];
         $db_user_password= $row['user_password'];
         $db_user_firstname= $row['user_firstname'];
         $db_user_lastname= $row['user_lastname'];
         $db_user_role= $row['user_role'];
+        $db_user_image= $row['user_image'];
+        $db_user_email= $row['user_email'];
+
         $password=crypt($password,$db_user_password);
 
     if($username!==$db_username && $password !==$db_user_password)
@@ -317,6 +323,9 @@ function login_user($username,$password){
         $_SESSION['firstname'] = $db_user_firstname;
         $_SESSION['lastname'] = $db_user_lastname;
         $_SESSION['user_role'] = $db_user_role;
+        $_SESSION['phone'] = $db_phone_no;
+        $_SESSION['user_image'] = $db_user_image;
+        $_SESSION['user_email'] = $db_user_email;
 
         redirect("../cms/admin");
 //        header("Location: ../cms/admin");
@@ -329,6 +338,9 @@ function login_user($username,$password){
         $_SESSION['firstname'] = $db_user_firstname;
         $_SESSION['lastname'] = $db_user_lastname;
         $_SESSION['user_role'] = $db_user_role;
+        $_SESSION['phone'] = $db_phone_no;
+        $_SESSION['user_image'] = $db_user_image;
+        $_SESSION['user_email'] = $db_user_email;
 
         redirect("../cms/post_an_ad.php");
 //        header("Location: ../cms/admin");

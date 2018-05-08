@@ -61,6 +61,8 @@
 
                         $post_title = $row['post_title'];
                         $post_user = $row['post_user'];
+                        $post_user_phone = $row['post_user_phone'];
+                        $post_user_image = $row['post_user_image'];
                         $post_date = $row['post_date'];
                         $post_image = $row['post_image'];
                         $post_content = $row['post_content'];
@@ -85,7 +87,7 @@
             <div class="widget user-dashboard-profile">
                 <!-- User Image -->
                 <div class="profile-thumb">
-                    <img src="images/avatar2.png" alt="" class="rounded-circle">
+                    <img src="images/<?php echo $post_user_image?>" alt="" class="rounded-circle">
                 </div>
                 <!-- User Name -->
                 <h5 class="text-center"><?php echo $post_user ?></h5>

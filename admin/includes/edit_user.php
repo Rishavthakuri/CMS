@@ -10,6 +10,7 @@ while($row = mysqli_fetch_assoc($select_users_query )) {
     $user_password = $row['user_password'];
     $user_firstname = $row['user_firstname'];
     $user_lastname = $row['user_lastname'];
+    $phone = $row['phone'];
     $user_email = $row['user_email'];
     $user_image = $row['user_image'];
     $user_role = $row['user_role'];
@@ -23,6 +24,7 @@ if(isset($_POST['edit_user'])) {
 //    $post_image = $_FILES['image']['name'];
 //    $post_image_temp = $_FILES['image']['tmp_name'];
     $username = $_POST['username'];
+    $phone = $_POST['phone'];
     $user_image = $_FILES['image']['name'];
     $user_image_temp = $_FILES['image']['tmp_name'];
     $user_email = $_POST['user_email'];
@@ -60,6 +62,7 @@ if(isset($_POST['edit_user'])) {
     $query.= "user_lastname ='{$user_lastname}',";
     $query.= "user_role ='{$user_role}',";
     $query.= "username ='{$username}',";
+    $query.= "phone ='{$phone}',";
     $query.= "user_email ='{$user_email}',";
     $query.= "user_password ='{$hashed_password}',";
     $query.= "user_image ='{$user_image}' ";
@@ -110,6 +113,11 @@ if(isset($_POST['edit_user'])) {
     <div class="form-group">
         <label for="post_category">Password</label>
         <input type="password" value="<?php echo $user_password ?>" class="form-control" name="user_password">
+    </div>
+
+    <div class="form-group">
+        <label for="post_category">Phone</label>
+        <input type="text" value="<?php echo $phone ?>" class="form-control" name="phone">
     </div>
 
 
