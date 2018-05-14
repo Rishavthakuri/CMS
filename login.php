@@ -34,7 +34,7 @@ if(ifItIsMethod('post')){
      login_user($_POST['username'],$_POST['password']);
     }
     else{
-        redirect('/cms/index.php');
+        redirect('/cms/text_us.php');
     }
 }
 ?>

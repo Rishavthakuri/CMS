@@ -22,12 +22,15 @@
 
 .navbar-inverse .navbar-nav > li > a {
     color: #fff;
+    font-size: medium;
 }
 
 
 .side-nav {
 
-    background-color: #286483;
+    background-image: url(back2.jpg) ;
+
+
 }
 
 /* ----------------- */
@@ -41,4 +44,18 @@ body {
     margin-top: 100px;
     background-color:#286483;
 }
+
+.simply-toast{
+    background-color: #cfed7c !important;
+}
+
+
+ul.nav.navbar-nav.side-nav {
+    height: 600px;
+}
+
+div#wrapper {
+    margin-top: -50px !important;
+}
+
 

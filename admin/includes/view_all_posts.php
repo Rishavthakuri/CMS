@@ -11,16 +11,31 @@ if(isset($_POST['checkBoxArray']))
                $query ="UPDATE posts SET post_status ='{$bulk_options}' WHERE post_id='{$postValueId}' ";
                $update_to_published_status=mysqli_query($connection,$query);
                ConfirmQuery($update_to_published_status);
+               ?>
+               <script>
+           $.simplyToast('Post has been  Published.');
+               </script>
+               <?php
                break;
            case 'draft':
                $query ="UPDATE posts SET post_status ='{$bulk_options}' WHERE post_id='{$postValueId}' ";
                $update_to_draft_status=mysqli_query($connection,$query);
                ConfirmQuery($update_to_draft_status);
+               ?>
+               <script>
+                   $.simplyToast('Post has been drafted.');
+               </script>
+               <?php
                break;
            case 'delete':
                $query ="DELETE  FROM posts WHERE post_id ='{$postValueId}' ";
                $update_to_delete_status=mysqli_query($connection,$query);
                ConfirmQuery($update_to_delete_status);
+               ?>
+               <script>
+                   $.simplyToast('Post has been deleted.');
+               </script>
+               <?php
                break;
            case 'clone':
                $query = "SELECT * FROM posts WHERE post_id= '{$postValueId}' ";
@@ -53,6 +68,11 @@ if(isset($_POST['checkBoxArray']))
                if(!$copy_query){
                    die("Query Failed".mysqli_error($connection));
                }
+               ?>
+               <script>
+                   $.simplyToast('Post has been Cloned.');
+               </script>
+               <?php
                break;
        }
 
@@ -95,7 +115,8 @@ if(isset($_POST['checkBoxArray']))
         <th>Status</th>
         <th>Image</th>
         <th>Comments</th>
-        <th>View</th>
+        <th>Views</th>
+        <th>View </th>
         <th>Action</th>
         <th>Action</th>
     </tr>
@@ -119,6 +140,7 @@ if(isset($_POST['checkBoxArray']))
         $post_tags = $row['post_tags'];
         $post_comment_count = $row['post_comment_count'];
         $post_date = $row['post_date'];
+        $post_views_count =$row['post_views_count'];
         echo "<tr>";
         ?>
         <td><input  class='checkBoxes' type='checkbox' name='checkBoxArray[]' value='<?php echo $post_id ?>'></td>
@@ -181,8 +203,9 @@ if(isset($_POST['checkBoxArray']))
 
 
         echo "<td>$count_comments </td>";
+        echo "<td>$post_views_count </td>";
 //        echo "<td> $post_date</td>";
-        echo "<td> <a class='btn btn-primary' href='../post.php?p_id={$post_id}'>View Post</a> </td>";
+        echo "<td> <a class='btn btn-primary' href='../post.php?p_id={$post_id}'>View</a> </td>";
         echo "<td> <a class='btn btn-info' href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a> </td>";
 
         ?>
@@ -224,6 +247,7 @@ if(isset($_POST['delete'])){
  $the_post_id=  $_POST['post_id'];
  $query ="DELETE FROM posts WHERE post_id= {$the_post_id} ";
  $delete_query=mysqli_query($connection,$query);
+
     header("Location:posts.php");
 }
 ?>

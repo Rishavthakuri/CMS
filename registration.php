@@ -32,6 +32,7 @@
     </div>
 </div>
 
+
 <?php
 
 
@@ -42,7 +43,7 @@ if(ifItIsMethod('post')){
     }
     else{
 
-        redirect('..cms/index.php');
+        redirect('..cms/text_us.php');
     }
 }
 ?>
@@ -76,7 +77,12 @@ if(isset($_POST['register']))
     }
     else
     {
-        echo "<h3 style='text-align: center;color: red;'>Registration Failed<h3>";
+//        echo "<h3 style='text-align: center;color: red;'>Registration Failed<h3>";
+        ?>
+        <script>
+            $.simplyToast('Registration Failed');
+        </script>
+        <?php
     }
 }
 
@@ -138,7 +144,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
     if (email_exists($email)) {
-        $error['email'] = 'Email already exits, <a href="index.php"> Please Login</a>';
+        $error['email'] = 'Email already exits, <a href="text_us.php"> Please Login</a>';
     }
 
 
@@ -171,7 +177,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if(empty($error)){
         register_user($username,$email,$password,$phone);
-        echo "<h4 style='text-align: center;color: #ff6378;'>Your Registration has been submitted.</h4>";
+        ?>
+
+        <script>
+
+        $.simplyToast('Registration has been submitted');
+        </script>
+<?php
         }
 
 }
@@ -189,7 +201,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     
  
     <!-- Page Content -->
-    <div class="container">
+    <div class="container register">
     
 <section id="login">
     <div class="container">
@@ -198,7 +210,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <div class="form-wrap">
                     <div class="well" class="w3-modal">
                         <div class="w3-center">
-                        <img src="images/avatar2.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+                        <img src="images/avatar2.png" alt="Avatar" style="width:20%" class="w3-circle w3-margin-top">
 
                         </div>
                         <h1 style="text-align: center">Register</h1>
@@ -232,10 +244,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                             <p><?php echo isset($error['phone']) ? $error['phone'] : '' ?></p>
                         </div>
 
-                        <div class="form-group">
-                            <label for="user_image">Profile Picture</label>
-                            <input type="file"  name="image" id="user_image">
-                        </div>
                         <br>
                         <div class="form-group">
                             <div class="g-recaptcha" data-sitekey="6Lej9FcUAAAAAIkrnCni8wHscM4Nh_TU-np1Qwim"></div>

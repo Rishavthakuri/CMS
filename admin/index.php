@@ -5,8 +5,6 @@
 }
 ?>
 
-
-
         <!-- Navigation -->
         <?php include "includes/admin_navigation.php" ?>
 
@@ -20,7 +18,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                           Welcome to Classified admin
+                           Welcome to adsnagar
                             <small><?php echo $_SESSION['username'] ?></small>
                         </h1>
 
@@ -37,7 +35,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-file-text fa-5x"></i>
+                                        <i class="fa fa-sticky-note fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <?php
@@ -199,7 +197,7 @@
                             chart.draw(data, google.charts.Bar.convertOptions(options));
                         }
                     </script>
-                    <div id="columnchart_material" style="width:auto; height: 500px;"></div>
+                    <div id="columnchart_material" style="width:auto; height: 320px;"></div>
                 </div>
 
             </div>

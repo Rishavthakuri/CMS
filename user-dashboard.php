@@ -72,6 +72,7 @@
                             <th>Image</th>
                             <th>Product Title</th>
                             <th class="text-center">Category</th>
+                            <th class="text-center">Action</th>
 
                         </tr>
                         </thead>
@@ -84,10 +85,13 @@
 
                             }
 
-                        $query = "SELECT * FROM posts WHERE post_user= '{$the_post_user}'";
+                        $query = "SELECT * FROM posts WHERE (post_user= '{$the_post_user}') AND (post_status ='published')";
+
                         $select_all_posts_query = mysqli_query($connection, $query);
                         while ($row = mysqli_fetch_assoc($select_all_posts_query))
                         {
+
+                            $post_id=$row['post_id'];
                             $post_title = $row['post_title'];
                             $post_author = $row['post_user'];
                             $post_date = $row['post_date'];
@@ -118,7 +122,26 @@
                             }
                             ?>
                         </span>
+
                             </td>
+                            <td class="action" data-title="Action">
+                                <div class="">
+                                    <ul class="list-inline justify-content-center">
+                                        <li class="list-inline-item">
+                                            <a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="post.php?p_id=<?php echo $post_id; ?>">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+
+<!--                            <form  method='post' action="">-->
+<!--                                <input type="hidden" name="post_id" value="--><?php //echo $post_id ?><!--">-->
+<!--                                --><?php
+//                                echo '<td><input class="btn btn-danger" type="submit" name="delete" value="Delete"></td>';
+//                                ?>
+<!--                            </form>-->
                             </tr>
 
 
@@ -135,3 +158,13 @@
     </div>
     <!-- Container End -->
 </section>
+
+<?php
+if(isset($_POST['delete'])){
+    $the_post_id=  $_POST['post_id'];
+    $query ="DELETE FROM posts WHERE post_id= {$the_post_id} ";
+    $delete_query=mysqli_query($connection,$query);
+
+    redirect("../cms/account-profile.php");
+}
+?>

@@ -37,7 +37,7 @@
 
 if (!isset($_GET['email']) && !isset($_GET['token']))
 {
-    redirect('index.php');
+    redirect('text_us.php');
 
 }
 

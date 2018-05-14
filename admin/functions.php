@@ -314,8 +314,13 @@ function login_user($username,$password){
 
     if($username!==$db_username && $password !==$db_user_password)
     {
-        header("Location: ../cms/index.php");
+
+        header("Location: ../cms/text_us.php");
+
+
+
     }
+
     else if ($username ==$db_username && $password ==$db_user_password && $db_user_role=='admin'  )
 //   && $db_user_role=='admin'
     {
@@ -328,6 +333,7 @@ function login_user($username,$password){
         $_SESSION['user_email'] = $db_user_email;
 
         redirect("../cms/admin");
+
 //        header("Location: ../cms/admin");
     }
 
@@ -349,10 +355,11 @@ function login_user($username,$password){
     else
     {
 
-        return false;
-//        redirect("../index.php");
 
-//        header("Location: ../cms/index.php");
+        return false;
+//        redirect("../text_us.php");
+
+//        header("Location: ../cms/text_us.php");
 
     }
     }

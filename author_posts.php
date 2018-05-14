@@ -123,6 +123,7 @@
             $select_all_posts_query = mysqli_query($connection, $query);
             while ($row = mysqli_fetch_assoc($select_all_posts_query))
             {
+                $post_id=$row['post_id'];
             $post_title = $row['post_title'];
             $post_author = $row['post_user'];
             $post_date = $row['post_date'];
@@ -135,6 +136,7 @@
 
             ?>
                     <td class="product-thumb">
+
                         <img width="80px" height="auto" src="images/<?php echo $post_image; ?>" alt="image description"></td>
                     <td class="product-details">
                         <h3 class="title"><?php echo $post_title ?></h3>
@@ -160,7 +162,7 @@
                         <div class="">
                             <ul class="list-inline justify-content-center">
                                 <li class="list-inline-item">
-                                    <a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="post.php?p_id=<?php echo $the_post_id; ?>">
+                                    <a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="post.php?p_id=<?php echo $post_id; ?>">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                 </li>

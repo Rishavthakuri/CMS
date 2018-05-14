@@ -5,7 +5,7 @@
 
 //if(!is_admin($_SESSION['username']))
 //{
-//    header("Location: index.php");
+//    header("Location: text_us.php");
 //}
 //?>
 

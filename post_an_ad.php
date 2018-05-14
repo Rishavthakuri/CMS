@@ -36,6 +36,11 @@ if(isset($_POST['create_post'])) {
     $create_post_query=mysqli_query($connection,$query);
     ConfirmQuery($create_post_query);
     $the_post_id= mysqli_insert_id($connection);
+    ?>
+    <script>
+    $.simplyToast('Post has been Submitted.');
+    </script>
+<?php
 
 
 }
@@ -47,6 +52,16 @@ if(isset($_POST['create_post'])) {
 
     </div>
 </div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=175516169633186&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
 
 <h2 class="col-md-offset-1 post-ad">Post an Ad</h2>
 <br>
@@ -130,4 +145,49 @@ if(isset($_POST['create_post'])) {
         </div>
     </form>
 </div>
+<div class="col-md-3">
+    <h4 id="social-title">Follow us</h4>
+    <div class="fb-page" data-href="https://www.facebook.com/Adsnagar/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Adsnagar/" class="fb-xfbml-parse-ignore">
+        <a href="https://www.facebook.com/Adsnagar/">Adsnagar.com</a></blockquote>
+    </div>
+</div>
+
+<div class="container col-md-3">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="images/2.png" alt="image1" style="width:100%;">
+            </div>
+
+            <div class="item">
+                <img src="images/3.png" alt="image2" style="width:100%;">
+            </div>
+
+            <div class="item">
+                <img src="images/4.png" alt="image3" style="width:100%;">
+            </div>
+            <div class="item">
+                <img src="images/6.png" alt="image4" style="width:100%;">
+            </div>
+            <div class="item">
+                <img src="images/7.png" alt="image5" style="width:100%;">
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--<div class="col-md-3">-->
+<!--    <img src="images/7.png" alt="">-->
+<!--</div>-->
+
 

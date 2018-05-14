@@ -6,7 +6,7 @@
 <?php
 if(!isset($_SESSION['user_role'])) {
 
-    header("Location: ../index.php");
+    header("Location: ../text_us.php");
 }
 ?>
 
@@ -24,7 +24,7 @@ if(!isset($_SESSION['user_role'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>adsnagar Admin Panel</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -34,7 +34,8 @@ if(!isset($_SESSION['user_role'])) {
 
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+<!--    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">-->
+    <link href="css/fontawesome-all.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
 
@@ -53,6 +54,7 @@ if(!isset($_SESSION['user_role'])) {
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 
     <script src="js/jquery.js"></script>
+    <script src="js/simply-toast.js"></script>
 
 
 

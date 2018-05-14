@@ -10,9 +10,6 @@
 <?php include "includes/navigation.php"?>
 
 
-<!-- Login Form -->
-
-
     <div id="id01" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
 
@@ -36,6 +33,8 @@
 
             <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
                 <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+                <span class="w3-right w3-padding w3-hide-small"><a href="http://localhost:81/cms/registration.php">Create new account</a></span>
+
                 <span class="w3-right w3-padding w3-hide-small"><a href="forget.php?forgot=<?php echo uniqid(true);?>">Forget password?</a></span>
             </div>
         </div>
@@ -46,7 +45,7 @@
 
 <!-- Categories table -->
 
-    <div class="main-banner banner text-center">
+    <div class="main-banner banner text-center img-responsive col-sm-12">
         <div class="container">
             <h1>Sell or Advertise   <span class="segment-heading">    anything online </span> with adsnagar</h1>
             <p>Advertisement For All</p>
@@ -57,6 +56,8 @@
             <?php endif; ?>
         </div>
     </div>
+
+
 
     <div class="content">
     <div class="categories">
@@ -106,7 +107,7 @@
             </div>
 
             <div class="col-md-2 focus-grid">
-                <a href="http://localhost:81/cms/category.php?category=1">
+                <a href="http://localhost:81/cms/category.php?category=2">
                     <div class="focus-border">
                         <div class="focus-layout">
                             <div class="focus-image"><i class="fa fa-wheelchair"></i></div>
@@ -197,6 +198,8 @@
         </div>
     </div>
 
+
+
 <!-- categories table ends -->
 
 <?php
@@ -269,13 +272,13 @@ else{
                             $post_category_id = $row['post_category_id'];
                             ?>
 
-                <div class="col-sm-12 col-lg-4">
+                <div class="col-sm-12 col-lg-3">
                             <div class="product-item bg-light">
                                 <div class="card">
                                     <div class="thumb-content">
                                         <div class="price">Rs.<?php echo  $post_price ?></div>
                                         <a href="post.php?p_id=<?php echo $post_id; ?>">
-                                            <img class="card-img-top img-fluid" style="width: 200px;height: 240px;" src="images/<?php echo $post_image; ?>" alt="Card image cap">
+                                            <img class="card-img-top img-fluid image-ad img-responsive" style="width: 200px;height: 240px;" src="images/<?php echo $post_image; ?>" alt="Card image cap">
                                         </a>
                                     </div>
                                     <div class="card-body">
@@ -301,13 +304,13 @@ else{
                                             </li>
                                         </ul>
                                         <div class="product-ratings">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                            </ul>
+<!--                                            <ul class="list-inline">-->
+<!--                                                <li class="list-inline-item selected"><i class="fa fa-star"></i></li>-->
+<!--                                                <li class="list-inline-item selected"><i class="fa fa-star"></i></li>-->
+<!--                                                <li class="list-inline-item selected"><i class="fa fa-star"></i></li>-->
+<!--                                                <li class="list-inline-item selected"><i class="fa fa-star"></i></li>-->
+<!--                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>-->
+<!--                                            </ul>-->
                                         </div>
                                     </div>
                                 </div>
@@ -327,11 +330,11 @@ else{
                 {
                     if ($i==$page)
                     {
-                        echo "<li><a class='active_link' href='index.php?page={$i}'>{$i}</a></li>";
+                        echo "<li><a class='active_link' href='text_us.php?page={$i}'>{$i}</a></li>";
 
                     }
                     else{
-                        echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
+                        echo "<li><a href='text_us.php?page={$i}'>{$i}</a></li>";
                     }
 
                 }
@@ -367,7 +370,7 @@ else{
                                 ?>
                                 <div class="col-md-3 biseller-column">
                                     <a href="post.php?p_id=<?php echo $post_id; ?>">
-                                        <img style="width:300;height: 300px; " src="images/<?php echo $post_image; ?>">
+                                        <img style="width:250px;height: 330px; " src="images/<?php echo $post_image; ?>">
                                         <span class="price">&#36; <?php echo  $post_price ?></span>
                                     </a>
                                     <div class="ad-info">
@@ -381,7 +384,7 @@ else{
                         </li>
                         <li>
                             <?php
-                            $query = "SELECT * FROM posts where post_id IN (70,71,72,73)";
+                            $query = "SELECT * FROM posts where post_id IN (86,87,90,84)";
                             $select_all_posts_query = mysqli_query($connection, $query);
                             while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
                                 $post_id = $row['post_id'];
@@ -454,10 +457,12 @@ if(ifItIsMethod('post')){
     if(isset($_POST['username']) && isset($_POST['password']))
     {
         login_user($_POST['username'],$_POST['password']);
+
     }
     else{
 
-        redirect('..cms/index.php');
+        redirect('..cms/text_us.php');
+
     }
 }
 ?>

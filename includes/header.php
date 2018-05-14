@@ -24,7 +24,9 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style3.css" rel="stylesheet">
 
+
     <link href="css/fontawesome-all.css" rel="stylesheet">
+<!--    <link href="css/toastr.min.css" rel="stylesheet">-->
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -33,7 +35,19 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script src="js/jquery.js"></script>
+    <script src="js/simply-toast.js"></script>
+
+
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <!--    <script src="js/toastr.min.js"></script>-->
+
+
     <script src='https://www.google.com/recaptcha/api.js'></script>
+
 
 
 </head>

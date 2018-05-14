@@ -1,0 +1,20 @@
+body {
+    padding-top:70px;
+
+}
+
+
+
+label {
+    color: #8383bb;
+    font-size: 14px;
+}
+
+.navbar-inverse {
+    background-color: #32204e;
+    border-color: #080808;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
+}

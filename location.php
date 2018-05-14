@@ -208,13 +208,13 @@
                                                     </ul>
                                                     <p class="card-text"><?php echo $post_content ?></p>
                                                     <div class="product-ratings">
-                                                        <ul class="list-inline">
-                                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        </ul>
+<!--                                                        <ul class="list-inline">-->
+<!--                                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>-->
+<!--                                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>-->
+<!--                                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>-->
+<!--                                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>-->
+<!--                                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>-->
+<!--                                                        </ul>-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -228,7 +228,7 @@
                             }
                         }
                         else{
-                            header("Locations:index.php");
+                            header("Locations:text_us.php");
                         }
 
                         ?>

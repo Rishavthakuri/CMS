@@ -13,7 +13,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">Classified</a>
+            <a class="navbar-brand" href="index.php">adsnagar</a>
         </div>
 
 
@@ -50,12 +50,16 @@
 
 
                 <li>
-                    <a class="<?php echo $registration_class;?>" href="../cms/registration.php">Register</a>
+                    <a class="<?php echo $registration_class;?>" href="../cms/registration.php">Register &nbsp;<i class="fa fa-user-plus"></i></a>
 
                 </li>
 
                 <li>
                     <a href="contact.php">Contact us</a>
+                </li>
+
+                <li>
+                    <a href="sms/public/text_us.php">SMS us</a>
                 </li>
                 <?php
 
@@ -81,7 +85,7 @@
                 <?php else: ?>
                     <li>
 <!--                        <a href="../cms/login.php">Login</a>-->
-                        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-larger">Login</button>
+                        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-larger">Login </button>
                     </li>
 
 

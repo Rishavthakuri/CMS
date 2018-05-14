@@ -1,5 +1,7 @@
+
 <?php  include "includes/db.php"; ?>
 <?php  include "includes/header.php"; ?>
+
 <?php session_start();?>
 <?php
 
@@ -10,7 +12,7 @@ if(ifItIsMethod('post')){
     }
     else{
 
-        redirect('..cms/index.php');
+        redirect('..cms/text_us.php');
     }
 }
 ?>
@@ -42,8 +44,16 @@ if(isset($_POST['submit']))
     $mail = $smtp->send($to, $headers, $body);
     if (PEAR::isError($mail)) {
         echo("<p>" . $mail->getMessage() . "</p>");
-    } else {
-        echo(" <center><p>Message successfully sent!</p></center>");
+    } else
+        {
+//        echo(" <center><p>Message successfully sent!</p></center>");
+        ?>
+
+        <script>
+
+    $.simplyToast('Message Successfully Sent');
+        </script>
+<?php
     }
 
 
@@ -65,6 +75,8 @@ if(isset($_POST['submit']))
             <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
             <img src="images/avatar3.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
         </div>
+
+
 
         <form class="w3-container" id="login-form"  method="post">
             <div class="w3-section">
@@ -92,6 +104,9 @@ if(isset($_POST['submit']))
 <!-- avigation -->
 
 <?php  include "includes/navigation.php"; ?>
+
+
+
 
 
 <!-- Page Content -->
@@ -134,6 +149,4 @@ if(isset($_POST['submit']))
 
 
     <hr>
-
-
 

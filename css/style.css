@@ -1474,5 +1474,80 @@ input[type="file"] {
 
 img.card-img-top.img-fluid {
 
-    margin-left: 80px;
+    margin-left: 0px;
+}
+
+
+
+img.card-img-top.img-fluid.image-ad {
+    margin-left: 20%;
+}
+
+.container.register{
+
+
+background: url(../images/noHomebg.jpg) 0 0 no-repeat;
+background-size: cover;
+min-height: 100%;
+min-width: 1024px;
+width: 100%;
+height: auto;
+
+top: 0;
+left: 0;
+}
+
+.form-wrap {
+    margin-top: 20px;
+}
+
+.container.register {
+    margin-top: -20px;
+}
+
+
+
+
+.zoom {
+    padding: 50px;
+    transition: transform .2s;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.2);
+}
+
+.simply-toast{
+    background-color: #edd192;
+}
+
+
+/* Facebook plugin*/
+
+/*.col-md-3 {*/
+    /*margin-left: 90px;*/
+/*}*/
+
+h4#social-title {
+    color: #bd22c7;
+    font-family: monospace;
+    font-style: normal;
+}
+
+
+html {
+    max-width: 100%;
+    overflow-x: hidden !important;
+}
+
+.container {
+    padding-right: 30px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }

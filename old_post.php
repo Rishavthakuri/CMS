@@ -162,7 +162,7 @@
                 }
             }
             else{
-                header("Location: index.php");
+                header("Location: text_us.php");
             }
 
 
